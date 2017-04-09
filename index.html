@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Employee List</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/reset.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container" >
+
+            <h3>
+                Employees
+            </h3>
+            <div>
+                <ul class="breadcrumb">
+                    <li >
+
+                        <span class="glyphicon glyphicon-home"></span>
+                        <a href="#">
+                            Home    
+                        </a>
+
+
+                    </li><li >
+                        <a href="#">
+                            Employees</a> </li> 
+                </ul>
+            </div>
+            <div class="row" >
+                <div class="col-md-12">
+                    <a href="#" class="btn btn-success " style="border-radius: 0" >
+                        Add New Employee  <span class="glyphicon glyphicon-plus">
+
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <hr>
+            <div class="panel panel-primary" style="border-radius:0">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <span class="glyphicon glyphicon-bullhorn"></span>
+                        Employees List
+                    </div>
+
+                </div>
+                <div class="panel-body ">
+
+                    <form class="form-horizontal">
+
+
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-group ">
+                                <div class="col-xs-4 col-sm-4">
+                                    <select class="form-control" style="border-radius:0">
+                                        <option value="">5
+                                        </option>
+                                        <option value="">6
+                                        </option>
+                                        <option value="">7
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <label class="col-xs-4 col-sm-2 " style="padding-top:5px;font-weight:normal" >
+                                    Records
+                                </label>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6" >
+
+                            <input type="text" placeholder="Search" class="form-control" style="border-radius: 0"/>
+
+                        </div>
+                    </form>
+
+
+
+                    <div class="table table-responsive">       
+                        <table class="table table-bordered">
+                            <thead class="text-danger ">
+                                <tr >
+                                    <th class="text-center">Mã số</th>
+                                    <th class="text-center">Tên</th>
+                                    <th class="text-center">Ngày sinh</th>
+                                    <th class="text-center">Email</th>
+                                    <th class="text-center">Chức vụ/Phòng ban</th>
+                                    <th class="text-center">Lương/Mã số thuế</th>
+                                    <th class="text-center">Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr >
+                                    <td>1</td>
+                                    <td class="text-center" >
+                                        <img class="" src="https://www.w3schools.com/w3images/lights.jpg" height="100" alt="dit">
+                                    </td>
+                                    <td>10/3/2000</td>
+                                    <td>lo@gmail.com</td>
+                                    <td><p>
+                                            <strong>
+                                                Chức:
+                                            </strong> Lờ
+                                        </p><p>
+                                            <strong>
+                                                Phòng:
+                                            </strong> Lờ
+                                        </p></td>
+                                    <td><p>
+                                            <strong>
+                                                Lương:
+                                            </strong> 9 số
+                                        </p><p>
+                                            <strong>
+                                                Mã số thuế:
+                                            </strong> 10
+                                        </p></td>
+                                    <td>
+
+                                        <p class=" btn-primary">  <a href="#" style="color:white" class="btn " style="border-radius:0"><span class="glyphicon glyphicon-edit"></span> View/Edit</a>
+                                        </p>
+
+
+                                        <p class=" btn-danger text-center"> <a href="#" style="color:white" class="btn  " style="border-radius:0"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+                                        </p>
+                                    </td>
+
+
+                                </tr>
+                                <tr >
+                                    <td>1</td>
+                                    <td class="text-center" >
+                                        <img class="" src="https://www.w3schools.com/w3images/lights.jpg" height="100" alt="dit">
+                                    </td>
+                                    <td>10/3/2000</td>
+                                    <td>lo@gmail.com</td>
+                                    <td><p>
+                                            <strong>
+                                                Chức:
+                                            </strong> Lờ
+                                        </p><p>
+                                            <strong>
+                                                Phòng:
+                                            </strong> Lờ
+                                        </p></td>
+                                    <td><p>
+                                            <strong>
+                                                Lương:
+                                            </strong> 9 số
+                                        </p><p>
+                                            <strong>
+                                                Mã số thuế:
+                                            </strong> 10
+                                        </p></td>
+                                    <td>
+
+                                        <p class=" btn-primary">  <a href="#" style="color:white" class="btn " style="border-radius:0"><span class="glyphicon glyphicon-edit"></span> View/Edit</a>
+                                        </p>
+
+
+                                        <p class=" btn-danger text-center"> <a href="#" style="color:white" class="btn  " style="border-radius:0"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+                                        </p>
+                                    </td>
+
+
+                                </tr>
+
+
+
+                        </table>
+
+                    </div>
+                     
+                        Đang xem 1 tới 5 trong 100 người
+                    
+                    <div class=" pull-right">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#">1</a>
+                            </li><li>
+                                <a href="#">2</a>
+                            </li><li>
+                                <a href="#">3</a>
+                            </li><li>
+                                <a href="#">4</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                   
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </body>
+</html>
