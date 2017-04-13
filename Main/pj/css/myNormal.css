@@ -1,0 +1,13 @@
+button.empty {
+	background: none !important;
+	border: none !important;
+	outline: none !important;
+}
+
+.hide {
+	display: none;
+}
+
+.none-dec {
+	text-decoration: none !important;
+}

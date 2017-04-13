@@ -1,0 +1,347 @@
+﻿-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Apr 13, 2017 at 12:56 PM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 5.6.24
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `ql_nhanvien`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lichsuthaydoitt`
+--
+-- Creation: Apr 10, 2017 at 01:21 PM
+--
+
+CREATE TABLE `lichsuthaydoitt` (
+  `ID` int(11) NOT NULL,
+  `IDNhanVienTHTD` int(11) NOT NULL,
+  `ChuThich` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- RELATIONS FOR TABLE `lichsuthaydoitt`:
+--   `IDNhanVienTHTD`
+--       `nhanvien` -> `ID`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `luongnhanvien`
+--
+-- Creation: Apr 10, 2017 at 01:20 PM
+--
+
+CREATE TABLE `luongnhanvien` (
+  `ID` int(11) NOT NULL,
+  `IDNhanVien` int(11) NOT NULL,
+  `NgayCuoiNhanLuong` date NOT NULL DEFAULT '2000-01-01'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- RELATIONS FOR TABLE `luongnhanvien`:
+--   `IDNhanVien`
+--       `nhanvien` -> `ID`
+--
+
+--
+-- Dumping data for table `luongnhanvien`
+--
+
+INSERT INTO `luongnhanvien` (`ID`, `IDNhanVien`, `NgayCuoiNhanLuong`) VALUES
+(1, 1, '2000-01-01');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nhanvien`
+--
+-- Creation: Apr 13, 2017 at 08:06 AM
+--
+
+CREATE TABLE `nhanvien` (
+  `ID` int(11) NOT NULL,
+  `Ten` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `NgaySinh` date NOT NULL DEFAULT '1990-01-01',
+  `Mail` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `IDPhongBan` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Luong` int(11) NOT NULL,
+  `MaSoThue` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `TenDangNhap` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `MatKhau` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- RELATIONS FOR TABLE `nhanvien`:
+--   `IDPhongBan`
+--       `phongban` -> `ID`
+--
+
+--
+-- Dumping data for table `nhanvien`
+--
+
+INSERT INTO `nhanvien` (`ID`, `Ten`, `NgaySinh`, `Mail`, `IDPhongBan`, `Luong`, `MaSoThue`, `TenDangNhap`, `MatKhau`) VALUES
+(1, 'AAA', '1990-01-01', 'AAAAAAA', 'KD', 111111, '11111111111111111', 'hucau', 'dd0d131132ce03e18b0c25b4c5f86ef3'),
+(3, 'AAA', '1990-01-01', 'AAAAAAA', 'TC', 111111, '11111111111111111', 'hucau6', 'dd0d131132ce03e18b0c25b4c5f86ef3'),
+(4, 'AAA', '1990-01-01', 'AAAAAAA', 'NS', 111111, '11111111111111111', 'hucau5', 'dd0d131132ce03e18b0c25b4c5f86ef3'),
+(5, 'AAA', '1990-01-01', 'AAAAAAA', 'KT', 111111, '11111111111111111', 'hucau4', 'dd0d131132ce03e18b0c25b4c5f86ef3'),
+(6, 'BBBBB', '1990-01-01', 'B', 'KD', 111111111, '11111111111111111111', 'hucau3', 'dd0d131132ce03e18b0c25b4c5f86ef3'),
+(7, 'BBBBB', '1990-01-01', 'B', 'KD', 111111111, '11111111111111111111', 'hucau2', 'dd0d131132ce03e18b0c25b4c5f86ef3'),
+(8, 'CCCCCCC', '1990-01-01', 'ccccccccccccc', 'NS', 22222, '22222222222222222', 'hucau1', 'dd0d131132ce03e18b0c25b4c5f86ef3');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `phanquyen`
+--
+-- Creation: Apr 10, 2017 at 01:18 PM
+--
+
+CREATE TABLE `phanquyen` (
+  `ID` int(11) NOT NULL,
+  `IDPhongBanTT` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `IDThaoTac` varchar(3) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `MucTieuThaoTac` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `IDPhongBan` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- RELATIONS FOR TABLE `phanquyen`:
+--   `IDPhongBanTT`
+--       `phongban` -> `ID`
+--   `IDPhongBan`
+--       `phongban` -> `ID`
+--   `IDThaoTac`
+--       `quyenthaotac` -> `ID`
+--
+
+--
+-- Dumping data for table `phanquyen`
+--
+
+INSERT INTO `phanquyen` (`ID`, `IDPhongBanTT`, `IDThaoTac`, `MucTieuThaoTac`, `IDPhongBan`) VALUES
+(83, 'KD', 'VIW', 'ID', 'KD'),
+(84, 'KD', 'VIW', 'phongban', 'KD'),
+(85, 'KD', 'VIW', 'luong', 'KD'),
+(86, 'KD', 'VIW', 'mail', 'KD'),
+(87, 'KD', 'VIW', 'masothue', 'KD'),
+(88, 'KD', 'VIW', 'ngaysinh', 'KD'),
+(89, 'KT', 'VIW', 'ID', 'KT'),
+(90, 'KT', 'VIW', 'phongban', 'KT'),
+(91, 'KT', 'VIW', 'luong', 'KT'),
+(92, 'KT', 'VIW', 'mail', 'KT'),
+(93, 'KT', 'VIW', 'masothue', 'KT'),
+(94, 'KT', 'VIW', 'ngaysinh', 'KT'),
+(95, 'KT', 'VIW', 'ID', 'KD'),
+(96, 'KT', 'VIW', 'luong', 'KD'),
+(97, 'KT', 'VIW', 'masothue', 'KD'),
+(98, 'KT', 'VIW', 'ID', 'TC'),
+(99, 'KT', 'VIW', 'luong', 'TC'),
+(100, 'KT', 'VIW', 'masothue', 'TC'),
+(101, 'KT', 'VIW', 'ID', 'NS'),
+(102, 'KT', 'VIW', 'luong', 'NS'),
+(103, 'KT', 'VIW', 'masothue', 'NS'),
+(104, 'TC', 'VIW', 'ID', 'TC'),
+(105, 'TC', 'VIW', 'phongban', 'TC'),
+(106, 'TC', 'VIW', 'luong', 'TC'),
+(107, 'TC', 'VIW', 'mail', 'TC'),
+(108, 'TC', 'VIW', 'masothue', 'TC'),
+(109, 'TC', 'VIW', 'ngaysinh', 'TC'),
+(110, 'NS', 'EDI', 'ID', 'TC'),
+(111, 'NS', 'EDI', 'phongban', 'TC'),
+(112, 'NS', 'EDI', 'luong', 'TC'),
+(113, 'NS', 'EDI', 'mail', 'TC'),
+(114, 'NS', 'EDI', 'masothue', 'TC'),
+(115, 'NS', 'EDI', 'ngaysinh', 'TC'),
+(116, 'NS', 'EDI', 'ID', 'KD'),
+(117, 'NS', 'EDI', 'phongban', 'KD'),
+(118, 'NS', 'EDI', 'luong', 'KD'),
+(119, 'NS', 'EDI', 'mail', 'KD'),
+(120, 'NS', 'EDI', 'masothue', 'KD'),
+(121, 'NS', 'EDI', 'ngaysinh', 'KD'),
+(122, 'NS', 'EDI', 'ID', 'KT'),
+(123, 'NS', 'EDI', 'phongban', 'KT'),
+(124, 'NS', 'EDI', 'luong', 'KT'),
+(125, 'NS', 'EDI', 'mail', 'KT'),
+(126, 'NS', 'EDI', 'masothue', 'KT'),
+(127, 'NS', 'EDI', 'ngaysinh', 'KT'),
+(128, 'NS', 'EDI', 'ID', 'NS'),
+(129, 'NS', 'EDI', 'phongban', 'NS'),
+(130, 'NS', 'EDI', 'luong', 'NS'),
+(131, 'NS', 'EDI', 'mail', 'NS'),
+(132, 'NS', 'EDI', 'masothue', 'NS'),
+(133, 'NS', 'EDI', 'ngaysinh', 'NS');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `phongban`
+--
+-- Creation: Apr 10, 2017 at 01:10 PM
+--
+
+CREATE TABLE `phongban` (
+  `ID` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Ten` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `IDTruongPhong` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- RELATIONS FOR TABLE `phongban`:
+--   `IDTruongPhong`
+--       `nhanvien` -> `ID`
+--
+
+--
+-- Dumping data for table `phongban`
+--
+
+INSERT INTO `phongban` (`ID`, `Ten`, `IDTruongPhong`) VALUES
+('KD', 'Phòng kinh doanh', 1),
+('KT', 'Phòng kế toán', 5),
+('NS', 'Phòng nhân sự', 4),
+('TC', 'Phòng tài chính', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quyenthaotac`
+--
+-- Creation: Apr 10, 2017 at 04:25 AM
+--
+
+CREATE TABLE `quyenthaotac` (
+  `ID` varchar(3) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `TenThaoTac` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- RELATIONS FOR TABLE `quyenthaotac`:
+--
+
+--
+-- Dumping data for table `quyenthaotac`
+--
+
+INSERT INTO `quyenthaotac` (`ID`, `TenThaoTac`) VALUES
+('EDI', 'Chỉnh sửa'),
+('VIW', 'Xem');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `lichsuthaydoitt`
+--
+ALTER TABLE `lichsuthaydoitt`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `IDNhanVienTHTD` (`IDNhanVienTHTD`);
+
+--
+-- Indexes for table `luongnhanvien`
+--
+ALTER TABLE `luongnhanvien`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `IDNhanVien` (`IDNhanVien`);
+
+--
+-- Indexes for table `nhanvien`
+--
+ALTER TABLE `nhanvien`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `username` (`TenDangNhap`),
+  ADD KEY `IDPhongBan` (`IDPhongBan`);
+
+--
+-- Indexes for table `phanquyen`
+--
+ALTER TABLE `phanquyen`
+  ADD PRIMARY KEY (`ID`,`IDPhongBanTT`,`IDThaoTac`,`MucTieuThaoTac`,`IDPhongBan`),
+  ADD KEY `fk_pq_pb_ownaction` (`IDPhongBanTT`),
+  ADD KEY `fk_pq_pb_targetaction` (`IDPhongBan`),
+  ADD KEY `fk_pq_tt` (`IDThaoTac`);
+
+--
+-- Indexes for table `phongban`
+--
+ALTER TABLE `phongban`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `IDTruongPhong` (`IDTruongPhong`);
+
+--
+-- Indexes for table `quyenthaotac`
+--
+ALTER TABLE `quyenthaotac`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `lichsuthaydoitt`
+--
+ALTER TABLE `lichsuthaydoitt`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `luongnhanvien`
+--
+ALTER TABLE `luongnhanvien`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `nhanvien`
+--
+ALTER TABLE `nhanvien`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `phanquyen`
+--
+ALTER TABLE `phanquyen`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `lichsuthaydoitt`
+--
+ALTER TABLE `lichsuthaydoitt`
+  ADD CONSTRAINT `fk_tt_nv` FOREIGN KEY (`IDNhanVienTHTD`) REFERENCES `nhanvien` (`ID`);
+
+--
+-- Constraints for table `luongnhanvien`
+--
+ALTER TABLE `luongnhanvien`
+  ADD CONSTRAINT `fk_ll_nv` FOREIGN KEY (`IDNhanVien`) REFERENCES `nhanvien` (`ID`);
+
+--
+-- Constraints for table `nhanvien`
+--
+ALTER TABLE `nhanvien`
+  ADD CONSTRAINT `fk_nv_pb` FOREIGN KEY (`IDPhongBan`) REFERENCES `phongban` (`ID`);
+
+--
+-- Constraints for table `phanquyen`
+--
+ALTER TABLE `phanquyen`
+  ADD CONSTRAINT `fk_pq_pb_ownaction` FOREIGN KEY (`IDPhongBanTT`) REFERENCES `phongban` (`ID`),
+  ADD CONSTRAINT `fk_pq_pb_targetaction` FOREIGN KEY (`IDPhongBan`) REFERENCES `phongban` (`ID`),
+  ADD CONSTRAINT `fk_pq_tt` FOREIGN KEY (`IDThaoTac`) REFERENCES `quyenthaotac` (`ID`);
+
+--
+-- Constraints for table `phongban`
+--
+ALTER TABLE `phongban`
+  ADD CONSTRAINT `fk_pb_nv` FOREIGN KEY (`IDTruongPhong`) REFERENCES `nhanvien` (`ID`);
