@@ -1,15 +1,30 @@
 ﻿<?php $title ="Đăng nhập vào quản trị";?>
-<?php include 'topPage.php'?>
+<?php $refs = array('../css/fantasy-bg.css')?>
+<?php
+
+session_start();
+if (isset($_SESSION['tdn'])) {
+    header('Location:index.php');
+}
+
+include 'topPage.php'?>
+
 <style>
 body {
 	background: #313332;
 }
 </style>
+<div class="abs">
+	<div class="fantasy-bg"></div>
+	<div class="fantasy-bg-black-blur"></div>
+</div>
+
 <div class="text-center">
 	<h1 style="margin-top: 100px; color: #39C">SPT</h1>
 </div>
 <br />
-<form method="post" action="login.php" class="col-sm-6 col-sm-offset-3 "
+<form method="post" action="../controller/nhanvien/checklogin.php"
+	class="frmLogin col-sm-6 col-sm-offset-3 "
 	style="background-color: rgba(255, 255, 255, 0.07); padding: 10px; BORDER-radius: 10px;">
 	<h3 class="text-center" style="color: white">
 		<b> ĐĂNG NHẬP </b>
@@ -26,17 +41,43 @@ body {
 	<div class="input-group" style="margin-top: 10px">
 		<span class="input-group-addon"
 			style="background-color: #FF4040; COLOR: #ced8e6"><span
-			class="glyphicon glyphicon-lock pull-left"></span></span>
-			 <input
+			class="glyphicon glyphicon-lock pull-left"></span></span> <input
 			name="txtMk" class="form-control length-text" type="password"
-			placeholder="Nhập mật khẩu..." /> 
-			<span class="input-group-addon"
+			placeholder="Nhập mật khẩu..." /> <span class="input-group-addon"
 			style="background-color: #39c; color: white">0/20</span>
 
 	</div>
+	<DIV CLASS="errors text-danger" STYLE="margin-top: 10px"></DIV>
 	<script type="text/javascript">
 $(function(){
+	$('.frmLogin').submit(function(e){
+		e.preventDefault();
+	
+		$.ajax({
+			url:this.action,
+			type:this.method,
+			data:$(this).serialize(),
+			cache:'false',
+			success:function(data){
+				data = $.parseJSON(data);	
+    			if(data.er){
+    				$('.errors').html('');
+        			len = data.dt.length;
+        			for(i=0;i<len;i++){
+    				$('.errors').append('<p>'+data.dt[i]+'</p>');
+        			}
+    			
+    		    }else {
+        
+    				window.location='index.php';
+    		    }
+			}
+		});
+	
+	});
 
+
+	
 	$('.length-text').on('input',function(){
 		var str=$(this).val();
 	
@@ -51,46 +92,24 @@ $(function(){
 	});
 });
 	</script>
-            	
-			    <?php
-    if (isset($_POST["btnLogin"])) {
-         include 'database/nhanvien.php';
-        $nvs = new nhanvien();
-        $tk = $_POST['txtTk'];
-        $mk = $_POST['txtMk'];
-        $errors = $nvs->dangnhap($db, $tk, $mk);
-       
-        if (!empty($errors)) {
-            echo '<p></p>';
-            foreach ($errors as $value) {
-                echo '<p class="text-danger">' . $value . '</p>';
-            }
-            
-            echo "<script>
-            $('input[name=\"txtTk\"]').val( '$tk');
-            $('input[name=\"txtMk\"]').val( '$mk');
-            </script>";
-        } else {
-            header('Location:index.php');
-        }
-    }
-    ?>
-			
-            <hr>
-	<button name="btnLogin" class="btn btn-info form-group pull-right "
+
+
+	<hr>
+	<button class="btn btn-info form-group pull-right "
 		style="border-radius: 0; margin-top: 10px" type="submit">
 		Login <span class="glyphicon glyphicon-circle-arrow-right"></span>
 	</button>
-	<a href="#" class="btn btn-link form-group"  data-toggle="popover" data-trigger="focus" data-content="Vui lòng liên hệ phòng nhân sự"
+	<a href="#" class="btn btn-link form-group" data-toggle="popover"
+		data-trigger="focus" data-content="Vui lòng liên hệ phòng nhân sự"
 		style="border-radius: 0; color: white; margin-top: 10px">Quên mật
 		khẩu?</a>
-<script>
-$(document).ready(function(){
-    $('[data-toggle="popover"]').popover();   
-});
+	<script>
+        $(function(){
+            $('[data-toggle="popover"]').popover();   
+        });
 </script>
 
 </form>
 
-
+<DIV CLASS="clearfix"></DIV>
 <?php include 'bottomPage.html';?>
