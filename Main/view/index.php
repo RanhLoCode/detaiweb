@@ -18,13 +18,12 @@ include '../model/nhanvien.php';
 include '../model/phongban.php';
 
 $nvs = new nhanvien($db);
-$row = $nvs->getInfo('IDPhongBan,Ten', $_SESSION['tdn']);
-
+$row = $nvs->getInfo('IDPhongBan,Ten,ID', $_SESSION['tdn']);
+$pbs = new phongban($db);
 $_SESSION['idpb'] = $row['IDPhongBan'];
 $_SESSION['ten'] = $row['Ten'];
-
-$pbs = new phongban($db);
-
+$_SESSION['isMn'] = $pbs->checkManager($row['IDPhongBan'], $row['ID']);
+$pb=$pbs->getInfo('Ten', $row['IDPhongBan'])['Ten'];
 ?>
 
 <nav class="navbar navbar-fixed-top navbar-inverse">
@@ -55,16 +54,18 @@ $pbs = new phongban($db);
 						aria-expanded="true">
 						<div class="media" style="max-width: 200px;">
 							<div class="media-left media-middle">
-								<img src="../image/default-avatar-plaid-shirt-guy.png"
+								<img src="../image/avatar/default-avatar.png"
 									class="media-object" style="width: 30px; border-radius: 100%">
 							</div>
 							<div class="media-body">
 								<h4 class="media-heading"></h4>
 								<p style="color: white;">
 										<?php
-        echo $_SESSION['ten'] . '/' . $pbs->getInfo('Ten', $row['IDPhongBan'])['Ten'];
-        ;
+        $s = $_SESSION['ten'] . '/' . $pb;
         
+        if ($_SESSION['isMn'])
+            $s .= '(TP)';
+        ECHO $s;
         ?>
 										  <span class="caret"></span>
 								</p>
@@ -76,7 +77,7 @@ $pbs = new phongban($db);
 					</button>
 					<ul class="dropdown-menu" style="width: 1"
 						aria-labelledby="dropdownMenu1">
-						<li><a href="index.php?kind=profile-employ">Thông tin cá nhân</a></li>
+						<li><a href="index.php?kind=profile-employ&tdn=<?php echo $_SESSION['tdn']?>">Thông tin cá nhân</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="exit.php">Thoát</a></li>
 					</ul>
@@ -119,14 +120,14 @@ $pbs = new phongban($db);
 
 				<ul>
 					<li><a href="index.php?kind=le">Danh sách</a></li>
-					<li><a href="index.php?kind=profile-employ">Thông tin cá nhân</a></li>
+					<li><a href="index.php?kind=profile-employ&tdn=<?php echo $_SESSION['tdn']?>">Thông tin cá nhân</a></li>
 
 				</ul>
 			</li>
 			<li>
 				<div>
 					<span class="glyphicon  glyphicon-home" style="color: white;"></span>
-					Phòng ban<span class="pull-right glyphicon glyphicon-minus plus"
+					Quản lý sự thay đổi<span class="pull-right glyphicon glyphicon-minus plus"
 						style="color: #ff4040"></span>
 				</div>
 
@@ -154,24 +155,23 @@ $pbs = new phongban($db);
 <?php
 if (isset($_GET["kind"])) {
     $kind = $_GET["kind"];
-}ELSE {
-    $kind='le';
+} else {
+    $kind = 'le';
 }
-    switch ($kind) {
-        case "le":
-            include 'list-employ.php';
-            break;
-        case "ld":
-            include 'list-dep.php';
-            break;
-        case "profile-employ":
-            include 'profile-employ.php';
-            break;
-        case "lp":
-            include "list-payment.php";
-            break;
-        
-    }
+switch ($kind) {
+    case "le":
+        include 'list-employ.php';
+        break;
+    case "ld":
+        include 'list-dep.php';
+        break;
+    case "profile-employ":
+        include 'profile-employ.php';
+        break;
+    case "lp":
+        include "list-payment.php";
+        break;
+}
 
 ?>
         </div>

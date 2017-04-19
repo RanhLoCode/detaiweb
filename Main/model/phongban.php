@@ -7,9 +7,10 @@ class phongban
     {
         $this->db = $db;
     }
- /*    function dsnhanvien(){
-       return $this->db->query('select * from nhanvien');
+    function dsphongban($strCol){
+       return $this->db->query("select $strCol from phongban");
     }
+    /*
     function dsnhanvien_theopb($idpb){
         return $this->db->query("select * from nhanvien ");
     }
@@ -39,5 +40,26 @@ class phongban
         
         return $qj->fetch(PDO::FETCH_ASSOC);
     }
+    FUNCTION validatePB($id){
+        $qj = $this->db->prepare("select 1 from phongban where ID=:id");
+        
+         
+        $qj ->execute(
+            array(
+                ':id'=>$id
+            )
+            );
+        
+        return count($qj->fetchAll(PDO::FETCH_ASSOC))>0?true:false;
+    }
+    function checkManager($id,$idnv){
+        $qj = $this->db->prepare('select 1 from phongban where ID = :id and IDTruongPhong = :idnv');
+        $qj->execute(array(
+            ':id'=>$id,
+            ':idnv'=>$idnv
+        ));
+        return count( $qj->fetchAll(PDO::FETCH_ASSOC))>0?true:false;
+    }
+ 
 }
 ?>

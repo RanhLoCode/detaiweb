@@ -11,20 +11,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     } else {
         $pageIndex = 1;
     }
-    $rowPage = 10;
+    if (isset($_GET['rowPage'])) {
+        $rowPage = $_GET['rowPage'];
+    } else {
+        $rowPage = 10;
+    }
+
     
     $nvs = new nhanvien($db);
     $pbs = new phongban($db);
     $countRows = $nvs->tong_dsnhanvien_theopb($idpb);
-    $countRows = ceil($countRows / 10) ;
+    $rowEachPage = ceil($countRows / $rowPage) ;
     $tb = $nvs->dsnhanvien_theopb($idpb, ($pageIndex - 1) * $rowPage, $rowPage)->fetchAll(PDO::FETCH_ASSOC);
     
     $data = array(
-        'rowCount' => $countRows,
+        'total'=>$countRows,
+        'rowEachPage' =>$rowEachPage ,
         'pageIndex' => $pageIndex,
         'data' => $tb
     );
     
-    echo json_encode($data);
+    echo json_encode($data,JSON_NUMERIC_CHECK);
 }
 ?>

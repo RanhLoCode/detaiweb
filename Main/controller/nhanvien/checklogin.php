@@ -1,5 +1,5 @@
 			    <?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         session_start();
         if (!isset($_SESSION['tdn'])) {
             
@@ -12,16 +12,16 @@
             if (empty($tk))
                 $errors[] = "Tên đăng nhập rỗng";
             
-            $pttTk = '#^([a-zA-Z]|_)([a-zA-Z0-9]|_){4,19}#';
+            $pttTk = '#^([a-zA-Z]|_)([a-zA-Z0-9]|_){2,100}#';
             if (! preg_match($pttTk, $tk)) {
-                $errors[] = "Tên đăng nhập không đúng định dạng : a-zA-Z0-9,_ , 5-20 kí tự";
+                $errors[] = "Tên đăng nhập không đúng định dạng : a-zA-Z0-9,_ , 3-100 kí tự";
             }
             
             if (empty($mk))
                 $errors[] = 'Mật khẩu rỗng';
-            $pttMk = '#([a-zA-Z0-9]|_){5,20}#';
+            $pttMk = '#([a-zA-Z0-9]|_){3,100}#';
             if (! preg_match($pttMk, $mk)) {
-                $errors[] = 'Mật khẩu không đúng định dạng : a-zA-Z0-9,_ , 5-20 kí tự';
+                $errors[] = 'Mật khẩu không đúng định dạng : a-zA-Z0-9,_ , 3-100 kí tự';
             }
             try {
                 if (empty($errors)) {
