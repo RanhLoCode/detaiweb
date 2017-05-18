@@ -1,0 +1,346 @@
+﻿-- phpMyAdmin SQL Dump
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
+--
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th5 18, 2017 lúc 01:00 CH
+-- Phiên bản máy phục vụ: 10.1.21-MariaDB
+-- Phiên bản PHP: 7.0.15
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Cơ sở dữ liệu: `ql_nhanvien`
+--
+CREATE DATABASE IF NOT EXISTS `ql_nhanvien` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `ql_nhanvien`;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lichsuthaydoitt`
+--
+-- Tạo: Th5 18, 2017 lúc 10:50 SA
+--
+
+CREATE TABLE `lichsuthaydoitt` (
+  `ID` int(11) NOT NULL,
+  `IDNhanVienTHTD` int(11) NOT NULL,
+  `ChuThich` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `NgayThucThi` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- RELATIONS FOR TABLE `lichsuthaydoitt`:
+--   `IDNhanVienTHTD`
+--       `nhanvien` -> `ID`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `luongnhanvien`
+--
+-- Tạo: Th5 16, 2017 lúc 08:07 SA
+--
+
+CREATE TABLE `luongnhanvien` (
+  `ID` int(11) NOT NULL,
+  `IDNhanVien` int(11) NOT NULL,
+  `NgayCuoiNhanLuong` date NOT NULL DEFAULT '2000-01-01'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- RELATIONS FOR TABLE `luongnhanvien`:
+--   `IDNhanVien`
+--       `nhanvien` -> `ID`
+--
+
+--
+-- Đang đổ dữ liệu cho bảng `luongnhanvien`
+--
+
+INSERT INTO `luongnhanvien` (`ID`, `IDNhanVien`, `NgayCuoiNhanLuong`) VALUES
+(6, 114, '2017-05-15'),
+(7, 115, '2017-05-15'),
+(8, 116, '2017-05-15'),
+(13, 121, '2017-05-16'),
+(14, 122, '2017-05-18'),
+(15, 123, '2017-05-18'),
+(16, 124, '2017-05-18'),
+(17, 125, '2017-05-18');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `nhanvien`
+--
+-- Tạo: Th5 16, 2017 lúc 10:12 SA
+--
+
+CREATE TABLE `nhanvien` (
+  `ID` int(11) NOT NULL,
+  `Ten` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `NgaySinh` date NOT NULL DEFAULT '1990-01-01',
+  `Mail` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `IDPhongBan` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Luong` int(11) NOT NULL,
+  `MaSoThue` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `MatKhau` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Hinh` varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT 'a',
+  `Action_User` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- RELATIONS FOR TABLE `nhanvien`:
+--   `IDPhongBan`
+--       `phongban` -> `ID`
+--
+
+--
+-- Đang đổ dữ liệu cho bảng `nhanvien`
+--
+
+INSERT INTO `nhanvien` (`ID`, `Ten`, `NgaySinh`, `Mail`, `IDPhongBan`, `Luong`, `MaSoThue`, `MatKhau`, `Hinh`, `Action_User`) VALUES
+(114, 'Hữu phúc LO', '1992-01-01', 'phuc-itc@yahoo.com', 'NS', 11, '11', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 114),
+(115, 'Phúc', '2001-01-19', 'phuc_itc@yahoo.com', 'KT', 11, '11', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(116, 'Đình Thắng   ', '1992-01-01', 'thang-itc@yahoo.com', 'TC', 11, '11', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 114),
+(121, 'phúc sáng hc', '2001-01-19', 'sang-hc@yahoo.com', 'NS', 10, '11', 'dd0d131132ce03e18b0c25b4c5f86ef3', '121u7OVFPp2BbHTDrLjn40eWYSZsKdxAvXM1Qyql5N9iCzt3gJkoGUwm68cRfahIEbg-fallingcloud.gif', 121),
+(122, 'P Sáng', '1992-01-01', 'sang-hc123@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(123, 'P Sáng', '2001-01-19', 'sang-hc123@savitar.com', 'NS', 10, '11', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(124, 'future flash', '1992-01-01', 'flash-savitar@flash.com', 'KD', 10, '11', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 123),
+(125, 'sang hc', '1992-01-01', 'sang-hc1123@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121);
+
+--
+-- Bẫy `nhanvien`
+--
+DELIMITER $$
+CREATE TRIGGER `isnhanvien` AFTER INSERT ON `nhanvien` FOR EACH ROW BEGIN
+	set @ten = (SELECT 	Ten from nhanvien WHERE ID=NEW.Action_User);
+    
+    INSERT into lichsuthaydoitt VALUES(null,
+                                      NEW.Action_User,
+                                       concat('Nhân viên ',@ten,' đã thêm 1 nhân viên : ',NEW.Ten
+                                             
+                                             ),now()
+                                      );
+    
+    
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `upnhanvien` BEFORE UPDATE ON `nhanvien` FOR EACH ROW BEGIN
+if(OLD.Hinh = NEW.Hinh and OLD.MatKhau = NEW.MatKhau) then 
+set @s='';	
+	set @ten = (SELECT 	Ten from nhanvien WHERE ID=NEW.Action_User);
+    
+    
+    if (OLD.Ten<>NEW.Ten) then
+    	set @s = concat(@s,' sửa tên từ ',OLD.Ten,' thành ',NEW.Ten);
+    END if;
+    if (OLD.Mail<>NEW.Mail) then
+    	set @s = concat(@s,' ,sửa mail từ ',OLD.Mail,' thành ',NEW.Mail);
+    END if;
+    if (OLD.NgaySinh<>NEW.NgaySinh) then
+    	set @s = concat(@s,' ,sửa ngày sinh từ ',OLD.NgaySinh,' thành ',NEW.NgaySinh);
+    END if;
+    if (OLD.IDPhongBan<>NEW.IDPhongBan) then
+    	set @s = concat(@s,' ,chuyển phòng ban từ ',OLD.IDPhongBan,' sang ',NEW.IDPhongBan);
+    END if;
+    if (OLD.Luong<>NEW.Luong) then
+    	set @s = concat(@s,' ,sửa lương từ ',OLD.Luong,' thành ',NEW.Luong);
+    END if;
+    if (OLD.MaSoThue<>NEW.MaSoThue) then
+    	set @s = concat(@s,' ,sửa mã số thuế từ ',OLD.MaSoThue,' thành ',NEW.MaSoThue);
+    END if;
+    
+    INSERT into lichsuthaydoitt 
+    VALUES(null,NEW.Action_User,
+                concat('Nhân viên ',@ten,' đã sửa thông tin nhân viên ',OLD.ID,':',@s 
+                                             
+                                             ),now()
+                                      );
+    
+     END if;
+END
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `phongban`
+--
+-- Tạo: Th5 18, 2017 lúc 09:15 SA
+--
+
+CREATE TABLE `phongban` (
+  `ID` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Ten` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `IDTruongPhong` int(11) DEFAULT NULL,
+  `Action_User` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- RELATIONS FOR TABLE `phongban`:
+--   `IDTruongPhong`
+--       `nhanvien` -> `ID`
+--
+
+--
+-- Đang đổ dữ liệu cho bảng `phongban`
+--
+
+INSERT INTO `phongban` (`ID`, `Ten`, `IDTruongPhong`, `Action_User`) VALUES
+('KD', 'Phòng kinh doanh', 122, 121),
+('KT', 'Phòng kế toán', 115, 114),
+('NS', 'Phòng nhân sự', 121, 114),
+('TC', 'Phòng tài chính', 116, 114);
+
+--
+-- Bẫy `phongban`
+--
+DELIMITER $$
+CREATE TRIGGER `upphongban` BEFORE UPDATE ON `phongban` FOR EACH ROW BEGIN
+
+set @s='';	
+	set @ten = (SELECT 	Ten from nhanvien WHERE ID=NEW.Action_User);
+    
+    
+    if (OLD.Ten<>NEW.Ten) then
+    	set @s = concat(@s,'sửa tên phòng ban từ ',OLD.Ten,' thành ',NEW.Ten);
+    END if;
+   
+    	
+    	if(OLD.IDTruongPhong is null) then 
+    		set @s = concat(@s,' , chọn ',NEW.IDTruongPhong ,' làm trưởng phòng');
+        ELSEif(OLD.IDTruongPhong<>NEW.IDTruongPhong) then
+           set @s = concat(@s,' ,sửa trường phòng từ ',OLD.IDTruongPhong,' thành ',NEW.IDTruongPhong);
+        END if;   
+   
+    
+    INSERT into lichsuthaydoitt VALUES(null,
+                                      NEW.Action_User,
+                                       concat('Nhân viên ',@ten,' đã sửa thông tin phòng ban ',OLD.ID,':',@s 
+                                             
+                                             ),now()
+                                      );
+    
+    
+END
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `quyenthaotac`
+--
+-- Tạo: Th5 10, 2017 lúc 01:14 CH
+--
+
+CREATE TABLE `quyenthaotac` (
+  `ID` varchar(3) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `TenThaoTac` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- RELATIONS FOR TABLE `quyenthaotac`:
+--
+
+--
+-- Đang đổ dữ liệu cho bảng `quyenthaotac`
+--
+
+INSERT INTO `quyenthaotac` (`ID`, `TenThaoTac`) VALUES
+('EDI', 'Chỉnh sửa'),
+('VIW', 'Xem');
+
+--
+-- Chỉ mục cho các bảng đã đổ
+--
+
+--
+-- Chỉ mục cho bảng `lichsuthaydoitt`
+--
+ALTER TABLE `lichsuthaydoitt`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `IDNhanVienTHTD` (`IDNhanVienTHTD`);
+
+--
+-- Chỉ mục cho bảng `luongnhanvien`
+--
+ALTER TABLE `luongnhanvien`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `IDNhanVien` (`IDNhanVien`);
+
+--
+-- Chỉ mục cho bảng `nhanvien`
+--
+ALTER TABLE `nhanvien`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `Mail` (`Mail`),
+  ADD KEY `IDPhongBan` (`IDPhongBan`);
+
+--
+-- Chỉ mục cho bảng `phongban`
+--
+ALTER TABLE `phongban`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `IDTruongPhong_2` (`IDTruongPhong`),
+  ADD KEY `IDTruongPhong` (`IDTruongPhong`);
+
+--
+-- Chỉ mục cho bảng `quyenthaotac`
+--
+ALTER TABLE `quyenthaotac`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
+--
+
+--
+-- AUTO_INCREMENT cho bảng `lichsuthaydoitt`
+--
+ALTER TABLE `lichsuthaydoitt`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+--
+-- AUTO_INCREMENT cho bảng `luongnhanvien`
+--
+ALTER TABLE `luongnhanvien`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT cho bảng `nhanvien`
+--
+ALTER TABLE `nhanvien`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `lichsuthaydoitt`
+--
+ALTER TABLE `lichsuthaydoitt`
+  ADD CONSTRAINT `fk_tt_nv` FOREIGN KEY (`IDNhanVienTHTD`) REFERENCES `nhanvien` (`ID`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `luongnhanvien`
+--
+ALTER TABLE `luongnhanvien`
+  ADD CONSTRAINT `fk_ll_nv` FOREIGN KEY (`IDNhanVien`) REFERENCES `nhanvien` (`ID`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `nhanvien`
+--
+ALTER TABLE `nhanvien`
+  ADD CONSTRAINT `fk_nv_pb` FOREIGN KEY (`IDPhongBan`) REFERENCES `phongban` (`ID`);
+
+--
+-- Các ràng buộc cho bảng `phongban`
+--
+ALTER TABLE `phongban`
+  ADD CONSTRAINT `fk_pb_nv` FOREIGN KEY (`IDTruongPhong`) REFERENCES `nhanvien` (`ID`);

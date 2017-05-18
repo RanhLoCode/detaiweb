@@ -1,0 +1,76 @@
+.abs {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -999;
+	overflow:hidden;
+}
+
+.fantasy-bg {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	background: #313332 url('../image/pr_bg.JPG');
+	-webkit-filter: blur(10px);
+	-moz-filter: blur(10px);
+	-o-filter: blur(10px);
+	animation: zoom 8s EASE 4s infinite alternate;
+    -webkit-animation: zoom 8s EASE 4s infinite alternate;
+	-moz-animation: zoom 8s EASE 4s infinite alternate;
+	-o-animation: zoom 8s EASE 4s infinite alternate;
+}
+
+@keyframes zoom {
+	from {transform: scale(1) rotate(0deg);
+}
+
+to {
+	transform: scale(1.3) rotate(10deg)
+}
+
+}
+@-webkit-keyframes zoom {
+	from {-webkit-transform: scale(1) rotate(0deg);
+}
+
+to {
+	-webkit-transform: scale(1.3) rotate(10deg)
+}
+
+}
+@-moz-keyframes zoom {
+	from {-moz-transform: scale(1) rotate(0deg);
+}
+
+to {
+	-moz-transform: scale(1.3) rotate(10deg)
+}
+
+}
+@-o-keyframes zoom {
+	from {-o-transform: scale(1) rotate(0deg);
+}
+
+to {
+	-o-transform: scale(1.3) rotate(10deg)
+}
+
+}
+.fantasy-bg-black-blur {
+	width: 100%;
+	height: 100%;
+	background: black;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	-webkit-filter: blur(8px);
+	-moz-filter: blur(8px);
+	-o-filter: blur(8px);
+	opacity: .8;
+}
