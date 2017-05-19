@@ -19,6 +19,7 @@ class nhanvien
         ));
     }
 
+
     function doimatkhau($id, $mkm)
     {
         $qj = $this->db->prepare('update nhanvien set MatKhau=:mk where ID =:id');

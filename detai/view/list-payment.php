@@ -9,7 +9,7 @@
                 }
               //  alert('dd');
                 function showData(pageIndex, rowPage) {
-                    $http.get('../controller/luong/thongtinluongs.php', {
+                    $http.get('controller/luong/thongtinluongs.php', {
                         params: {
                             pageIndex: pageIndex,
                             rowEachPage: rowPage.vl
@@ -54,7 +54,7 @@
                 $scope.phatluong = function (dk, id) {
                     if (dk) {
                         $http({
-                            url:'../controller/luong/phatluong.php',
+                            url:'controller/luong/phatluong.php',
                             method:'POST',
                             data : 'ID='+id,
                             headers: {'Content-Type': 'application/x-www-form-urlencoded'}

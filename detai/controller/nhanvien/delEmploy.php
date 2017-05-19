@@ -31,9 +31,17 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
                             include '../../model/luong.php';
                             $ls = new luong($db);
 
-                            $confirmDel = $isMn?$$pbs->setManager($info['IDPhongBan'],null):true;
+                            $confirmDel = $isMn?$pbs->setManager($info['IDPhongBan'],null):true;
                             if ($confirmDel) {//xóa mục trên bảng lương trước
                                 if ($nvs->DelEmp($id)) {
+                                    include '../../model/lichsuthaydoi.php';
+                                    $lstt = new lichsuthaydoi($db);
+                                    $tennvtt = $nvs->getInfo("Ten","ID = ".$_SESSION['id'])['Ten'];
+                                    if($lstt->Add($tennvtt,$id)){
+
+                                    }else {
+                                        $errors[] = 'Thất bại';
+                                    }
                                 } else {
                                     $errors[] = 'Thất bại';
                                 }

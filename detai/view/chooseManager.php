@@ -38,7 +38,7 @@ $ren['chooseManager'] = function () {
                 });
             };
             function GetDeps() {
-                $http.get('../controller/phongban/GetDeps.php').success(function (data) {
+                $http.get('controller/phongban/GetDeps.php').success(function (data) {
                     $scope.dspb = data;
                     $scope.txtPhongBan = data[0];
                 });
@@ -47,7 +47,7 @@ $ren['chooseManager'] = function () {
             GetDeps();
             function GetEmps(idpb) {
 
-                $http.get('../controller/nhanvien/DSNhanvien_PB.php', {params: {idpb: idpb}}).success(function (data) {
+                $http.get('controller/nhanvien/DSNhanvien_PB.php', {params: {idpb: idpb}}).success(function (data) {
                     $scope.ListEmps = data;
                     //  alert(JSON.stringify(data));
                 });
@@ -80,7 +80,7 @@ $ren['chooseManager'] = function () {
         <div class="modal-content">
 
             <div class="modal-body">
-                <form class="frmChangeManager" method="POST" action="../controller/phongban/setManager.php">
+                <form class="frmChangeManager" method="POST" action="controller/phongban/setManager.php">
                     <div class="form-group row">
                         <div class="col-sm-6">
                             <div class="form-group">

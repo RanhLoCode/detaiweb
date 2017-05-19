@@ -30,7 +30,7 @@ if(isset($_SESSION['id'])) {
         $itemTb['idnv'] = $row['IDNhanVienTHTD'];
         $itemTb['tennv'] = !isset($info_nv['Ten']) || $info_nv['Ten'] == null ? 'Nhân viên này đã bị xóa':$info_nv['Ten'];
         $itemTb['date'] = $row['NgayThucThi'];
-
+        $itemTb['note'] = $row['ChuThich'];
         $tb[] = $itemTb;
 
     }

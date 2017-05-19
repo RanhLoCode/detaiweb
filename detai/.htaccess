@@ -1,0 +1,8 @@
+RewriteEngine on
+RewriteRule ke-toan view/index.php?kind=lp
+RewriteRule nhan-vien/xem-danh-sach.html view/index.php?kind=le
+RewriteRule quan-tri view/index.php?kind=le
+RewriteRule nhan-vien/thong-tin-nhan-vien-([0-9]+).html view/index.php?kind=profile-employ&id=$1
+RewriteRule danh-sach-thay-doi view/index.php?kind=ld
+RewriteRule dang-nhap.html view/login.php
+RewriteRule dang-xuat view/exit.php

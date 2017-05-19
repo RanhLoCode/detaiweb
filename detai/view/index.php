@@ -2,10 +2,10 @@
 include '../function/render.php';
 $title = "Quản trị";
 $refs = array(
-    '../css/index.css'
+    'css/index.css'
 );
 $refsJS = array(
-    '../js/angularjs_1_4_8.min.js'
+    'js/angularjs_1_4_8.min.js'
 );
 include 'topPage.php';
 
@@ -55,7 +55,7 @@ $pb = $pbs->GetDep($emp['IDPhongBan']);
                                 aria-expanded="true">
                             <div class="media" style="max-width: 200px;">
                                 <div class="media-left media-middle">
-                                    <img src="../image/avatar/default-avatar.png"
+                                    <img src="image/avatar/default-avatar.png"
                                          class="media-object" style="width: 30px; border-radius: 100%">
                                 </div>
                                 <div class="media-body">
@@ -78,12 +78,12 @@ $pb = $pbs->GetDep($emp['IDPhongBan']);
                         </button>
                         <ul class="dropdown-menu"
                             aria-labelledby="dropdownMenu1">
-                            <li><a href="index.php?kind=profile-employ&id=<?php echo $_SESSION['id'] ?>">Thông tin cá
+                            <li><a href="nhan-vien/thong-tin-nhan-vien-<?php echo $_SESSION['id'] ?>.html">Thông tin cá
                                     nhân</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="index.php?kind=changepass-employ&id=<?php echo $_SESSION['id'] ?>">Đổi mật
                                     khẩu</a></li>
-                            <li><a href="exit.php">Thoát</a></li>
+                            <li><a href="dang-xuat">Thoát</a></li>
                         </ul>
                     </div>
                 </li>
@@ -126,8 +126,8 @@ $pb = $pbs->GetDep($emp['IDPhongBan']);
                     </div>
 
                     <ul>
-                        <li><a href="index.php?kind=le">Danh sách</a></li>
-                        <li><a href="index.php?kind=profile-employ&id=<?php echo $_SESSION['id'] ?>">Thông tin cá
+                        <li><a href="nhan-vien/xem-danh-sach.html">Danh sách</a></li>
+                        <li><a href="nhan-vien/thong-tin-nhan-vien-<?php echo $_SESSION['id'] ?>.html">Thông tin cá
                                 nhân</a></li>
 
                     </ul>
@@ -140,7 +140,7 @@ $pb = $pbs->GetDep($emp['IDPhongBan']);
                     </div>
 
                     <ul>
-                        <li><a href="index.php?kind=ld">Danh sách</a></li>
+                        <li><a href="danh-sach-thay-doi">Danh sách</a></li>
 
                     </ul>
                 </li>
@@ -152,7 +152,7 @@ $pb = $pbs->GetDep($emp['IDPhongBan']);
                     </div>
 
                     <ul>
-                        <li><a href="index.php?kind=lp">Xem thông tin</a></li>
+                        <li><a href="ke-toan">Xem thông tin</a></li>
 
 
                     </ul>

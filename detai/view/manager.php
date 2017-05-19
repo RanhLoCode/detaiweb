@@ -88,13 +88,14 @@
                             <td>{{item.tennv}}</td>
                             <td>{{item.date}}</td>
                             <td>
-                                <button class="btn btn-success">Chi tiết</button>
+                                <button ng-click="show(item.note)" data-toggle="modal" data-target="#detail-info" class="btn btn-success">Chi tiết</button>
                             </td>
 
                         </tr>
 
 
                     </table>
+                    <?php include 'change-info-detail.html' ?>
                     <div class=" pull-right">
                         <ul class="pagination">
                             <li ng-repeat="item in pages" ng-click="selPage(item.vl)"><a href="#"
@@ -107,11 +108,14 @@
                         ?>
                         <script>
                                 app.controller('change-history',function($scope,$http){
+                                    $scope.show = function(note){
+                                        $scope.note = note;
+                                    };
                                     $scope.setOrder = function(field){
                                             $scope.order  =field;
                                     };
                                     GetData = function(pageIndex,rowPage){
-                                        $http.get('../controller/lichsuthaydoi/lichsuthaydoi.php',{params:{
+                                        $http.get('controller/lichsuthaydoi/lichsuthaydoi.php',{params:{
                                             pageIndex:pageIndex,
                                             rowEachPage :rowPage.vl
                                         }}).success(function(data){

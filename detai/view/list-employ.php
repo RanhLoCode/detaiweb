@@ -18,7 +18,7 @@
             </div>
             <div id="addEmp" class="modal fade" role="dialog">
                 <div class="modal-dialog" style="width: 80%">
-                    <form action="../controller/nhanvien/addEmploy.php" method="POST">
+                    <form action="controller/nhanvien/addEmploy.php" method="POST">
                         <div class="modal-content">
 
                             <div class="modal-body">
@@ -37,8 +37,8 @@
                                     </div>
                                     <script
                                             src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-                                    <script src="../js/moment.min.js"></script>
-                                    <script src="../bootstrap/bootstrap-datetimepicker.min.js"></script>
+                                    <script src="js/moment.min.js"></script>
+                                    <script src="bootstrap/bootstrap-datetimepicker.min.js"></script>
 
                                     <script type="text/javascript">
 
@@ -93,7 +93,7 @@
                                 <div class="form-group">
                                     <label for="txtCaptcha">
                                         Nhập mã xác nhận
-                                        <img src="../image/captcha.php" width="100px" class="img-rounded"/>
+                                        <img src="image/captcha.php" width="100px" class="img-rounded"/>
                                     </label>
                                     <input id="txtCaptcha" type="text" name="txtCaptcha" class="form-control"
                                            style="margin-top:20px"/>
@@ -123,7 +123,7 @@
 
 
                                                     }
-                                                    $('#addEmp form label img').attr('src', "<?php echo '../image/captcha.php'?>");
+                                                    $('#addEmp form label img').attr('src', "<?php echo 'image/captcha.php'?>");
 
                                                 },
 
@@ -234,9 +234,9 @@
                         ng-repeat="item in items | orderBy:myorder | filter:{'Ten':it,'TenPB':tenpb}">
                         <td>{{item.ID}}</td>
                         <td>
-                            <a href="?kind=profile-employ&id={{item.ID}}">
+                            <a href="nhan-vien/thong-tin-nhan-vien-{{item.ID}}.html">
                                 <img class="img-rounded"
-                                     src="../image/avatar/{{item.Hinh}}" height="50"
+                                     src="image/avatar/{{item.Hinh}}" height="50"
                                      alt="Lỗi">
                             </a>
                         </td>
@@ -251,9 +251,9 @@
                         <?php } ?>
                         <?php if ($_SESSION['idpb'] == 'NS') { ?>
                             <td>
-                                <a href="index.php?kind=profile-employ&id={{item.ID}}"><span
+                                <a href="nhan-vien/thong-tin-nhan-vien-{{item.ID}}.html"><span
                                             class="glyphicon glyphicon-pencil"></span></a>
-                                <a class="delEmploy" href="../controller/nhanvien/delEmploy.php?id={{item.ID}}"><span
+                                <a class="delEmploy" href="controller/nhanvien/delEmploy.php?id={{item.ID}}"><span
                                             class="glyphicon glyphicon-trash"></span></a>
                             </td>
                         <?php } ?>
@@ -271,7 +271,7 @@
                                     type: 'get',
                                     data: {focus: fc},
                                     success: function (rs) {
-                                        // alert(rs); //check error
+                                        //alert(rs); //check error
                                         rs = $.parseJSON(rs);
                                         if (rs.er) {
                                             ms = rs.ms;
@@ -332,7 +332,7 @@ $ren['dsnv'] = function () {
         app.controller('dsnv', function ($scope, $http) {
 
             function GetDeps() {
-                $http.get('../controller/phongban/GetDeps.php').success(function (data) {
+                $http.get('controller/phongban/GetDeps.php').success(function (data) {
                     $scope.dspb = data;
                 });
             }
@@ -346,7 +346,7 @@ $ren['dsnv'] = function () {
 
             function getPageContent(pageIndex, rowPage) {
                 r = rowPage.vl;
-                $http.get('../controller/nhanvien/dsnhanvien_theopb.php', {
+                $http.get('controller/nhanvien/dsnhanvien_theopb.php', {
                     params: {
                         pageIndex: pageIndex,
                         rowPage: r

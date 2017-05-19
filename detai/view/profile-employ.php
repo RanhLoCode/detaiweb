@@ -46,7 +46,7 @@
                     </P>
                     <div id="changeAvatar" class="modal fade" role="dialog">
                         <div class="modal-dialog">
-                            <form action="../controller/nhanvien/changeAvatar.php" method="post"
+                            <form action="controller/nhanvien/changeAvatar.php" method="post"
                                   enctype="multipart/form-data" class="frmChangeAvatar">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -55,7 +55,7 @@
                                     <DIV CLASS="modal-body">
                                         <div class="container-fluid text-center">
                                             <img CLASS="img-rounded avatar"
-                                                 src="../image/avatar/<?php echo $emp['Hinh'] ?>" width="50%"/>
+                                                 src="image/avatar/<?php echo $emp['Hinh'] ?>" width="50%"/>
                                         </div>
                                         <input type="hidden" value="<?php echo $emp['ID'] ?>" name="ID">
 
@@ -99,7 +99,7 @@
                         </div>
                     </div>
                     <?php }?>
-                    <img class="img-rounded" src="../image/avatar/<?php echo $emp['Hinh'] ?>"
+                    <img class="img-rounded" src="image/avatar/<?php echo $emp['Hinh'] ?>"
                          width="150"/>
 
                 </div>
@@ -158,12 +158,12 @@
     </div>
 
     <div style="display: none" class="edit-info panel panel-danger">
-        <form action="../controller/nhanvien/editEmploy.php" method="post">
+        <form action="controller/nhanvien/editEmploy.php" method="post">
             <div class="panel-heading">
                 <h3 class="panel-title">Sửa - <?php echo $emp['ID'] ?></h3>
             </div>
             <div class="panel-body">
-                <input name="txtID"
+                <input name="txtID" type="hidden"
                        class="form-control" VALUE=" <?php echo $emp['ID'] ?>"/>
                 <div class="form-group">
                     <label for="txtName">Tên</label> <input id="txtName" name="txtName"
@@ -179,8 +179,8 @@
                     </div>
                     <script
                             src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-                    <script src="../js/moment.min.js"></script>
-                    <script src="../bootstrap/bootstrap-datetimepicker.min.js"></script>
+                    <script src="js/moment.min.js"></script>
+                    <script src="bootstrap/bootstrap-datetimepicker.min.js"></script>
 
                     <script type="text/javascript">
 

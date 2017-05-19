@@ -1,5 +1,5 @@
 ﻿<?php $title = "Đăng nhập vào quản trị"; ?>
-<?php $refs = array('../css/fantasy-bg.css') ?>
+<?php $refs = array('css/fantasy-bg.css') ?>
 <?php
 
 session_start();
@@ -23,7 +23,7 @@ include 'topPage.php' ?>
         <h1 style="margin-top: 100px; color: #39C">SPT</h1>
     </div>
     <br/>
-    <form method="post" action="../controller/nhanvien/checklogin.php"
+    <form method="post" action="controller/nhanvien/checklogin.php"
           class="frmLogin col-sm-6 col-sm-offset-3 "
           style="background-color: rgba(255, 255, 255, 0.07); padding: 10px; BORDER-radius: 10px;">
         <h3 class="text-center" style="color: white">
@@ -70,7 +70,7 @@ include 'topPage.php' ?>
 
                             } else {
                                // alert('v');
-                                window.location = 'index.php';
+                                window.location = 'quan-tri';
                             }
                         }
                     });
