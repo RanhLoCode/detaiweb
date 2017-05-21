@@ -81,7 +81,7 @@ $pb = $pbs->GetDep($emp['IDPhongBan']);
                             <li><a href="nhan-vien/thong-tin-nhan-vien-<?php echo $_SESSION['id'] ?>.html">Thông tin cá
                                     nhân</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="index.php?kind=changepass-employ&id=<?php echo $_SESSION['id'] ?>">Đổi mật
+                            <li><a href="nhan-vien/doi-mat-khau-<?php echo $_SESSION['id'] ?>.html">Đổi mật
                                     khẩu</a></li>
                             <li><a href="dang-xuat">Thoát</a></li>
                         </ul>

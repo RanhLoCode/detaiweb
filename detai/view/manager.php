@@ -4,9 +4,9 @@
         <h3>Quản lý thông tin</h3>
         <div>
             <ul class="breadcrumb">
-                <li><span class="glyphicon glyphicon-home"></span> <a href="#"> Trang
+                <li><span class="glyphicon glyphicon-home"></span> <a href="quan-tri"> Trang
                         chủ </a></li>
-                <li><a href="#"> Thông tin</a></li>
+                <li><a href=""> Thông tin</a></li>
             </ul>
         </div>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 18, 2017 lúc 01:00 CH
+-- Thời gian đã tạo: Th5 21, 2017 lúc 04:50 CH
 -- Phiên bản máy phục vụ: 10.1.21-MariaDB
 -- Phiên bản PHP: 7.0.15
 
@@ -21,28 +21,86 @@ USE `ql_nhanvien`;
 --
 -- Cấu trúc bảng cho bảng `lichsuthaydoitt`
 --
--- Tạo: Th5 18, 2017 lúc 10:50 SA
---
 
 CREATE TABLE `lichsuthaydoitt` (
   `ID` int(11) NOT NULL,
   `IDNhanVienTHTD` int(11) NOT NULL,
   `ChuThich` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `NgayThucThi` date NOT NULL
+  `NgayThucThi` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- RELATIONS FOR TABLE `lichsuthaydoitt`:
---   `IDNhanVienTHTD`
---       `nhanvien` -> `ID`
+-- Đang đổ dữ liệu cho bảng `lichsuthaydoitt`
 --
+
+INSERT INTO `lichsuthaydoitt` (`ID`, `IDNhanVienTHTD`, `ChuThich`, `NgayThucThi`) VALUES
+(8, 121, 'Nhân viên phúc sáng hc đã xóa 114 khỏi danh sách nhân viên', '2017-05-18 00:00:00'),
+(9, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : đình thắng', '2017-05-18 00:00:00'),
+(10, 121, 'Nhân viên phúc sáng hc đã sửa thông tin nhân viên 115: sửa tên từ Phúc thành Phúc CHÓ', '2017-05-18 00:00:00'),
+(11, 121, 'Nhân viên phúc sáng hc đã sửa thông tin nhân viên 127: ,sửa ngày sinh từ 1992-01-01 thành 2001-01-31', '2017-05-18 19:54:02'),
+(12, 121, 'Nhân viên phúc sáng hc đã sửa thông tin phòng ban TC:', '2017-05-18 20:58:13'),
+(13, 121, 'Nhân viên phúc sáng hc đã xóa 116 khỏi danh sách nhân viên', '2017-05-18 20:58:13'),
+(14, 121, 'Nhân viên phúc sáng hc đã sửa thông tin nhân viên 121: ,sửa mã số thuế từ 11 thành 1-122-00-555-3', '2017-05-21 21:03:15'),
+(15, 121, 'Nhân viên phúc sáng hc đã sửa thông tin phòng ban KT:', '2017-05-21 21:06:30'),
+(16, 121, 'Nhân viên phúc sáng hc đã xóa 115 khỏi danh sách nhân viên', '2017-05-21 21:06:31'),
+(17, 121, 'Nhân viên phúc sáng hc đã xóa 127 khỏi danh sách nhân viên', '2017-05-21 21:06:36'),
+(18, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : UserEmploy', '2017-05-21 21:14:05'),
+(19, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : UserEmploy', '2017-05-21 21:15:25'),
+(20, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : UserEmploy', '2017-05-21 21:15:45'),
+(21, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : UserEmploy', '2017-05-21 21:16:07'),
+(22, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : UserEmploy', '2017-05-21 21:16:32'),
+(23, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauEmp', '2017-05-21 21:17:20'),
+(24, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:17:48'),
+(25, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:18:10'),
+(26, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:18:31'),
+(27, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:21:08'),
+(28, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:21:28'),
+(29, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:21:50'),
+(30, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:22:09'),
+(31, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:22:29'),
+(32, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:23:25'),
+(33, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:23:48'),
+(34, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:24:51'),
+(35, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:25:35'),
+(36, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:26:02'),
+(37, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:26:39'),
+(38, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:29:39'),
+(39, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauq', '2017-05-21 21:30:17'),
+(40, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:30:45'),
+(41, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauax', '2017-05-21 21:31:07'),
+(42, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucaups', '2017-05-21 21:31:33'),
+(43, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:32:00'),
+(44, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:32:34'),
+(45, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:33:15'),
+(46, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:34:12'),
+(47, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:34:33'),
+(48, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucaud', '2017-05-21 21:35:00'),
+(49, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaa', '2017-05-21 21:35:27'),
+(50, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:36:31'),
+(51, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauqa', '2017-05-21 21:37:19'),
+(52, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucausss', '2017-05-21 21:37:37'),
+(53, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauss', '2017-05-21 21:37:58'),
+(54, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:38:13'),
+(55, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucausss', '2017-05-21 21:38:33'),
+(56, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucaud', '2017-05-21 21:39:02'),
+(57, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauas', '2017-05-21 21:39:25'),
+(58, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:40:31'),
+(59, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:40:51'),
+(60, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauAAA', '2017-05-21 21:42:13'),
+(61, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaa', '2017-05-21 21:42:30'),
+(62, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucausss', '2017-05-21 21:42:52'),
+(63, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucausss', '2017-05-21 21:43:22'),
+(64, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:44:09'),
+(65, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:44:34'),
+(66, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:44:50'),
+(67, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:45:07'),
+(68, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:45:25'),
+(69, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:45:50');
 
 -- --------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `luongnhanvien`
---
--- Tạo: Th5 16, 2017 lúc 08:07 SA
 --
 
 CREATE TABLE `luongnhanvien` (
@@ -52,31 +110,68 @@ CREATE TABLE `luongnhanvien` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- RELATIONS FOR TABLE `luongnhanvien`:
---   `IDNhanVien`
---       `nhanvien` -> `ID`
---
-
---
 -- Đang đổ dữ liệu cho bảng `luongnhanvien`
 --
 
 INSERT INTO `luongnhanvien` (`ID`, `IDNhanVien`, `NgayCuoiNhanLuong`) VALUES
-(6, 114, '2017-05-15'),
-(7, 115, '2017-05-15'),
-(8, 116, '2017-05-15'),
 (13, 121, '2017-05-16'),
-(14, 122, '2017-05-18'),
-(15, 123, '2017-05-18'),
-(16, 124, '2017-05-18'),
-(17, 125, '2017-05-18');
+(14, 128, '2017-05-21'),
+(15, 129, '2017-05-21'),
+(16, 130, '2017-05-21'),
+(17, 131, '2017-05-21'),
+(18, 132, '2017-05-21'),
+(19, 133, '2017-05-21'),
+(20, 134, '2017-05-21'),
+(21, 135, '2017-05-21'),
+(22, 136, '2017-05-21'),
+(23, 137, '2017-05-21'),
+(24, 138, '2017-05-21'),
+(25, 139, '2017-05-21'),
+(26, 140, '2017-05-21'),
+(27, 141, '2017-05-21'),
+(28, 142, '2017-05-21'),
+(29, 143, '2017-05-21'),
+(30, 144, '2017-05-21'),
+(31, 145, '2017-05-21'),
+(32, 146, '2017-05-21'),
+(33, 147, '2017-05-21'),
+(34, 148, '2017-05-21'),
+(35, 149, '2017-05-21'),
+(36, 150, '2017-05-21'),
+(37, 151, '2017-05-21'),
+(38, 152, '2017-05-21'),
+(39, 153, '2017-05-21'),
+(40, 154, '2017-05-21'),
+(41, 155, '2017-05-21'),
+(42, 156, '2017-05-21'),
+(43, 157, '2017-05-21'),
+(44, 158, '2017-05-21'),
+(45, 159, '2017-05-21'),
+(46, 160, '2017-05-21'),
+(47, 161, '2017-05-21'),
+(48, 162, '2017-05-21'),
+(49, 163, '2017-05-21'),
+(50, 164, '2017-05-21'),
+(51, 165, '2017-05-21'),
+(52, 166, '2017-05-21'),
+(53, 167, '2017-05-21'),
+(54, 168, '2017-05-21'),
+(55, 169, '2017-05-21'),
+(56, 170, '2017-05-21'),
+(57, 171, '2017-05-21'),
+(58, 172, '2017-05-21'),
+(59, 173, '2017-05-21'),
+(60, 174, '2017-05-21'),
+(61, 175, '2017-05-21'),
+(62, 176, '2017-05-21'),
+(63, 177, '2017-05-21'),
+(64, 178, '2017-05-21'),
+(65, 179, '2017-05-21');
 
 -- --------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `nhanvien`
---
--- Tạo: Th5 16, 2017 lúc 10:12 SA
 --
 
 CREATE TABLE `nhanvien` (
@@ -93,24 +188,63 @@ CREATE TABLE `nhanvien` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- RELATIONS FOR TABLE `nhanvien`:
---   `IDPhongBan`
---       `phongban` -> `ID`
---
-
---
 -- Đang đổ dữ liệu cho bảng `nhanvien`
 --
 
 INSERT INTO `nhanvien` (`ID`, `Ten`, `NgaySinh`, `Mail`, `IDPhongBan`, `Luong`, `MaSoThue`, `MatKhau`, `Hinh`, `Action_User`) VALUES
-(114, 'Hữu phúc LO', '1992-01-01', 'phuc-itc@yahoo.com', 'NS', 11, '11', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 114),
-(115, 'Phúc', '2001-01-19', 'phuc_itc@yahoo.com', 'KT', 11, '11', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
-(116, 'Đình Thắng   ', '1992-01-01', 'thang-itc@yahoo.com', 'TC', 11, '11', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 114),
-(121, 'phúc sáng hc', '2001-01-19', 'sang-hc@yahoo.com', 'NS', 10, '11', 'dd0d131132ce03e18b0c25b4c5f86ef3', '121u7OVFPp2BbHTDrLjn40eWYSZsKdxAvXM1Qyql5N9iCzt3gJkoGUwm68cRfahIEbg-fallingcloud.gif', 121),
-(122, 'P Sáng', '1992-01-01', 'sang-hc123@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
-(123, 'P Sáng', '2001-01-19', 'sang-hc123@savitar.com', 'NS', 10, '11', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
-(124, 'future flash', '1992-01-01', 'flash-savitar@flash.com', 'KD', 10, '11', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 123),
-(125, 'sang hc', '1992-01-01', 'sang-hc1123@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121);
+(121, 'phúc sáng hc', '2001-01-19', 'sang-hc@yahoo.com', 'NS', 10, '1-122-00-555-3', '62e6892a9d21c10e07135b4ff4136115', '121bCkBimRh5IjoZJQS3wyHc0gA8L1KNMf4leVOzGanWDvpU2dqYs67TPFX9xtErutab.jpg', 121),
+(128, 'UserEmploy', '1992-01-01', 'UserEmploy@yahoo.com', 'KD', 10, '11', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(129, 'UserEmploy', '1992-01-01', 'UserEmploy1@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(130, 'UserEmploy', '1992-01-01', 'UserEmploy2@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(131, 'UserEmploy', '1992-01-01', 'UserEmploy3@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(132, 'UserEmploy', '1992-01-01', 'UserEmploy4@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(133, 'hucauEmp', '1992-01-01', 'hucau@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(134, 'hucauE', '1992-01-01', 'hucauE@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(135, 'hucauE', '1992-01-01', 'hucauE1@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(136, 'hucauE', '1992-01-01', 'hucauE2@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(137, 'hucauE', '1992-01-01', 'hucauE3@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(138, 'hucauE', '1992-01-01', 'hucauE4@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(139, 'hucauE', '1992-01-01', 'hucauE@yahoo.comx', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(140, 'hucauE', '1992-01-01', 'hucauE@savitar.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(141, 'hucauE', '1992-01-01', 'hucauE1@savitar.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(142, 'hucauE', '1992-01-01', 'hucauE1@savitar.comx', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(143, 'hucauE', '1992-01-01', 'hucauE1@savitar.coma', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(144, 'hucauE', '1992-01-01', 'hucauE1@savitar.comax', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(145, 'hucauE', '1992-01-01', 'hucauE1@savitar.comfff', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(146, 'hucauE', '1992-01-01', 'hucauE1@savitar.comaaa', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(147, 'hucauE', '1992-01-01', 'hucauE1@savitar.comsd', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(148, 'hucauE', '1992-01-01', 'hucauE@gmail.com', 'TC', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(149, 'hucauq', '1992-01-01', 'hucau@savitar.com', 'TC', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(150, 'hucauaaa', '1992-01-01', 'hucauaa@yahoo.com', 'TC', 10, '2', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(151, 'hucauax', '1992-01-01', 'hucauE1@savitar.comaax', 'TC', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(152, 'hucaups', '1992-01-01', 'hucauE1@savitar.comapz', 'TC', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(153, 'hucauaaa', '1992-01-01', 'hucau@yahoo.comccc', 'TC', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(154, 'hucauaaa', '1992-01-01', 'hucau@yahoo.com.vn', 'TC', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(155, 'hucauaaa', '1992-01-01', 'hucau@yahoo.com.vnxa', 'TC', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(156, 'hucauaaa', '1992-01-01', 'hucau@yahoo.com.vnas', 'TC', 100, '22', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(157, 'hucauE', '1992-01-01', 'hucau@yahoo.com.vnks', 'TC', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(158, 'hucaud', '1992-01-01', 'hucaus@yahoo.com', 'TC', 1111, '33', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(159, 'hucauaa', '1992-01-01', 'hucau@yahoo.com.vnzsd', 'TC', 10, '2', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(160, 'hucauE', '1992-01-01', 'hucau@yahoo.com.vnls', 'TC', 10, '3', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(161, 'hucauqa', '1992-01-01', 'hucau@yahoo.com.vnpx', 'NS', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(162, 'hucausss', '1992-01-01', 'hucau@yahoo.com.vnss', 'NS', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(163, 'hucauss', '1992-01-01', 'hucau@yahoo.com.vncccc', 'NS', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(164, 'hucauaaa', '1992-01-01', 'hucau@yahoo.com.vnasd', 'NS', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(165, 'hucausss', '1992-01-01', 'hucau@yahoo.com.vnaas', 'NS', 10, '2', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(166, 'hucaud', '1992-01-01', 'hucau@yahoo.com.vnpxs', 'NS', 10, '2', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(167, 'hucauas', '1992-01-01', 'hucau@yahoo.com.vnzxs', 'NS', 10, '2', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(168, 'hucauaaa', '1992-01-01', 'hucau@yahoo.com.vnpls', 'NS', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(169, 'hucauE', '1992-01-01', 'hucau@yahoo.com.vnlks', 'NS', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(170, 'hucauAAA', '1992-01-01', 'hucau@yahoo.com.vnaew', 'KT', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(171, 'hucauaa', '1992-01-01', 'hucau@yahoo.com.vnasw', 'KT', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(172, 'hucausss', '1992-01-01', 'hucau@yahoo.com.vnlkq', 'KT', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(173, 'hucausss', '1992-01-01', 'hucau@yahoo.com.vndlk', 'KT', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(174, 'hucauaaa', '1992-01-01', 'hucau@yahoo.com.vnlkop', 'KT', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(175, 'hucauaaa', '1992-01-01', 'hucau@yahoo.com.vnlqkp', 'KT', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(176, 'hucauaaa', '1992-01-01', 'hucau@yahoo.com.vnqlkp', 'KT', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(177, 'hucauaaa', '1992-01-01', 'hucau@yahoo.com.vnqksx', 'KT', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(178, 'hucauaaa', '1992-01-01', 'hucau@yahoo.com.vnaqkl', 'KT', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(179, 'hucauaaa', '1992-01-01', 'hucau@yahoo.com.vnadd', 'KT', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121);
 
 --
 -- Bẫy `nhanvien`
@@ -132,6 +266,8 @@ $$
 DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `upnhanvien` BEFORE UPDATE ON `nhanvien` FOR EACH ROW BEGIN
+
+
 if(OLD.Hinh = NEW.Hinh and OLD.MatKhau = NEW.MatKhau) then 
 set @s='';	
 	set @ten = (SELECT 	Ten from nhanvien WHERE ID=NEW.Action_User);
@@ -164,6 +300,8 @@ set @s='';
                                       );
     
      END if;
+
+
 END
 $$
 DELIMITER ;
@@ -172,8 +310,6 @@ DELIMITER ;
 
 --
 -- Cấu trúc bảng cho bảng `phongban`
---
--- Tạo: Th5 18, 2017 lúc 09:15 SA
 --
 
 CREATE TABLE `phongban` (
@@ -184,20 +320,14 @@ CREATE TABLE `phongban` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- RELATIONS FOR TABLE `phongban`:
---   `IDTruongPhong`
---       `nhanvien` -> `ID`
---
-
---
 -- Đang đổ dữ liệu cho bảng `phongban`
 --
 
 INSERT INTO `phongban` (`ID`, `Ten`, `IDTruongPhong`, `Action_User`) VALUES
-('KD', 'Phòng kinh doanh', 122, 121),
-('KT', 'Phòng kế toán', 115, 114),
+('KD', 'Phòng kinh doanh', NULL, 121),
+('KT', 'Phòng kế toán', NULL, 121),
 ('NS', 'Phòng nhân sự', 121, 114),
-('TC', 'Phòng tài chính', 116, 114);
+('TC', 'Phòng tài chính', NULL, 121);
 
 --
 -- Bẫy `phongban`
@@ -238,17 +368,11 @@ DELIMITER ;
 --
 -- Cấu trúc bảng cho bảng `quyenthaotac`
 --
--- Tạo: Th5 10, 2017 lúc 01:14 CH
---
 
 CREATE TABLE `quyenthaotac` (
   `ID` varchar(3) COLLATE utf8mb4_unicode_ci NOT NULL,
   `TenThaoTac` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- RELATIONS FOR TABLE `quyenthaotac`:
---
 
 --
 -- Đang đổ dữ liệu cho bảng `quyenthaotac`
@@ -306,17 +430,17 @@ ALTER TABLE `quyenthaotac`
 -- AUTO_INCREMENT cho bảng `lichsuthaydoitt`
 --
 ALTER TABLE `lichsuthaydoitt`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 --
 -- AUTO_INCREMENT cho bảng `luongnhanvien`
 --
 ALTER TABLE `luongnhanvien`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 --
 -- AUTO_INCREMENT cho bảng `nhanvien`
 --
 ALTER TABLE `nhanvien`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=180;
 --
 -- Các ràng buộc cho các bảng đã đổ
 --

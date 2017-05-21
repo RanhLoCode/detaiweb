@@ -1,11 +1,11 @@
-<div class="">
+﻿<div class="">
 
     <h3>Nhân viên</h3>
     <div>
         <ul class="breadcrumb">
-            <li><span class="glyphicon glyphicon-home"></span> <a href="#"> Home
+            <li><span class="glyphicon glyphicon-home"></span> <a href="nhan-vien/xem-danh-sach.html"> Trang chủ
                 </a></li>
-            <li><a href="#"> Nhân viên</a></li>
+            <li><a href=""> Nhân viên</a></li>
         </ul>
     </div>
     <?php if ($_SESSION['idpb'] == 'NS') { ?>
@@ -57,13 +57,13 @@
                                 <div class="form-group">
                                     <label for="txtPhongban">Phòng ban</label> <select
                                             class="form-control" name="txtPhongban" id="txtPhongban">
-                                        <?php
-                                        $listPb = $pbs->GetDeps();
+                                       <?php
+                                       $listPb = $pbs->GetDeps();
                                         foreach ($listPb as $item) {
                                             ?>
                                             <option value="<?php echo $item["ID"] ?>"><?php echo $item['Ten'] ?></option>
                                             <?php
-                                        }
+                                       }
 
                                         ?>
 
@@ -119,8 +119,8 @@
                                                             $('.err').append('<p class="text-primary">' + ers[i] + '</p>');
                                                     } else {
                                                         alert(dt.dt);
-                                                        $('#addEmp form input').val('');
-
+                                                     //   $('#addEmp form input').val('');
+                                                        location.reload();
 
                                                     }
                                                     $('#addEmp form label img').attr('src', "<?php echo 'image/captcha.php'?>");

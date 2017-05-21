@@ -89,9 +89,9 @@
     <h3>Kế toán</h3>
     <div>
         <ul class="breadcrumb">
-            <li><span class="glyphicon glyphicon-home"></span> <a href="#"> Trang
+            <li><span class="glyphicon glyphicon-home"></span> <a href="quan-tri"> Trang
                     chủ </a></li>
-            <li><a href="#"> Kế toán</a></li>
+            <li><a href=""> Kế toán</a></li>
         </ul>
     </div>
 

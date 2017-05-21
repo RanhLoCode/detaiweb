@@ -5,8 +5,8 @@
         <ul class="breadcrumb">
             <li><span class="glyphicon glyphicon-home"></span> <a href="#"> Trang
                     chủ </a></li>
-            <li><a href="?kind=le"> Nhân viên</a></li>
-            <li><a href="">Đổi mật khẩu</a></li>
+            <li><a href="nhan-vien/xem-danh-sach.html"> Nhân viên</a></li>
+            <li><a href=""></a></li>
         </ul>
     </div>
 
@@ -33,7 +33,7 @@
             if ($_SESSION['id'] == $id) {
                 ?>
                 <h3><?php echo $info['Ten'] . ' - ' .$id ?> </h3>
-                <FORM class="frmChangePass" action="../controller/nhanvien/changepass.php" method="post">
+                <FORM class="frmChangePass" action="controller/nhanvien/changepass.php" method="post">
                     <input value="<?php echo $id; ?>" name="id" type="hidden">
                     <div class="form-group">
                         <label for="txtOldPass">Mật khẩu cũ :</label>
@@ -50,7 +50,7 @@
                     <div class="form-group">
                         <label for="txtCaptcha">
                             Nhập mã xác nhận
-                            <img src="../image/captcha.php" width="100px" class="img-rounded"/>
+                            <img src="image/captcha.php" width="100px" class="img-rounded"/>
                         </label>
                         <input id="txtCaptcha" type="text" name="txtCaptcha" class="form-control"
                                style="margin-top:20px"/>
@@ -81,16 +81,16 @@
                                               }
                                         }else {
                                             alert('Thành công');
-                                            location.href="index.php?kind=profile-employ&id=<?php echo $_SESSION['id']?>";
+                                            location.href="nhan-vien/thong-tin-nhan-vien-<?php echo $_SESSION['id']?>.html";
                                         }
-                                        $('.frmChangePass label img').attr('src',"<?php echo '../image/captcha.php'?>");
+                                        $('.frmChangePass label img').attr('src',"<?php echo 'image/captcha.php'?>");
                                     }
                                 });
                         });
                     });
                 </script>
             <?php } else {
-                $href = 'index.php?kind=changepass-employ&id=' . $_SESSION['id'];
+                $href = "nhan-vien/doi-mat-khau-".$_SESSION['id'].".html";
                 echo "<script>
                         location.href='$href';
                 </script>";
