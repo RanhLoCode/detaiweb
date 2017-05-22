@@ -3,6 +3,7 @@ $length=5;
 session_start();
 $md5 = md5(rand());
 $text = substr($md5,0,$length);
+$text = strtolower($text);
 $captcha = imagecreatefrompng("bg_captcha.png");
 $font=4;
 for($i=0;$i<20;$i++)

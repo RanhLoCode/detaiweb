@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     $st = null;
     $newname = '';
     session_start();
-    IF (isset($_SESSION['tdn'])) {
+    IF (isset($_SESSION['id'])) {
         $file = $_FILES['txtAvatar'];
         if ($file['name'] != null) {
             include '../../database/cnt.php';
@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
                             $des = '../../image/avatar/' . $newname;
                             if (copy($file['tmp_name'], $des)) {
 
-                                $img = $nvs->getInfo_id('Hinh', $id)['Hinh'];
+                                $img = $nvs->getInfo('Hinh', "ID = $id")['Hinh'];
                                 if ($img != 'default-avatar.png') {
                                     $path = '../../image/avatar/' . $img;
                                     if (file_exists($path)) {

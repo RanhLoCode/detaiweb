@@ -1,16 +1,18 @@
 <?php
-
+//print_r($_POST);
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     session_start();
-    $errors=null;
-    $tdn='';
-    if ($_SESSION['idpb'] == 'NS') {
+    $errors = null;
+    if ($_SESSION['id'] && $_SESSION['idpb'] == 'NS') {
         try {
             include '../../database/cnt.php';
             include '../../model/nhanvien.php';
             include '../../model/phongban.php';
+            include '../../model/luong.php';
+
             $nvs = new nhanvien($db);
             $pbs = new phongban($db);
+            $luongs = new luong($db);
 
             $ten = $_POST['txtName'];
             $ngaysinh = $_POST['txtBirthday'];
@@ -20,16 +22,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $thue = $_POST['txtMsThue'];
 
 
-            $tdn = normalText_2($ten) . '_' . $mail;
             $mk = $_POST['txtMk'];
             $mk_r = $_POST['txtMk_r'];
             $captcha = $_POST['txtCaptcha'];
 
             // validate
-            $tempTen  = normalText($ten);
-            $sprTen = "#^[a-zA-Z]([a-zA-Z]|\\s){5,20}#";
-            if (!preg_match($sprTen,$tempTen)) {
-                $errors[] = 'Tên không hợp lệ : a-z,A-Z,6-20 kí tư '.$tempTen;
+            $tempTen = normalText($ten);
+//echo $tempTen;
+            $sprTen = "#^[a-zA-Z][a-zA-Z\s]{5,30}$#";
+            if (!preg_match($sprTen, $tempTen)) {
+                $errors[] = 'Tên không hợp lệ : a-z,A-Z,6-30 kí tư ';
             }
             $date = DateTime::createFromFormat('Y-m-d', $ngaysinh);
             $date_errors = DateTime::getLastErrors();
@@ -52,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (!isset($luong) || !is_numeric($luong)) {
                 $errors[] = 'Lương không hợp lệ' . $luong;
             }
-            if ($thue==null) {
+            if ($thue == null) {
                 $errors[] = 'Thuế không hợp lệ';
             }
             $pttMk = '#([a-zA-Z0-9]|_){3,100}#';
@@ -65,32 +67,44 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (!isset($captcha) || $captcha == null) {
                 $errors[] = 'Captcha không hợp lệ !';
             } else {
-                IF ($_SESSION['captcha'] != md5($captcha)) {
+                IF ($_SESSION['captcha'] !=  md5(strtolower($captcha))) {
                     $errors[] = 'Captcha không đúng !';
                 }
             }
+            if($nvs->isExist($mail)){
+                $errors[]='Mail này đã được đăng ký !';
+            }
+
             if (empty($errors)) {
+
                 $mk = md5($mk);
 
 
-                    $rs = $nvs->themnhanvien($ten, $ngaysinh, $mail, $phongban, $luong, $thue, $tdn, $mk, 'default-avatar.png');
-                    if ($rs) {
-                    } else {
+                $rs = $nvs->AddEmp($ten, $ngaysinh, $mail, $phongban, $luong, $thue, $mk, 'default-avatar.png');
+                if ($rs) {
+                    $id = $nvs->getInfo("ID","Mail = '$mail'")['ID'];
+                    $rss = $luongs ->them($id);
+                    if($rss){
+
+                    }else {
                         $errors[] = 'loi';
                     }
+                } else {
+                    $errors[] = 'loi';
+                }
 
             }
-        }catch(Exception $e){
-            $errors[] ='Loi : '. $e->getMessage();
+        } catch (Exception $e) {
+            $errors[] = 'Loi : ' . $e->getMessage();
         }
-        } else {
-            $errors[] = 'Bạn không có quyền này !';
-        }
+    } else {
+        $errors[] = 'Bạn không có quyền này !';
+    }
 
     if ($errors == null) {
         $errors = array(
             'er' => false,
-            "dt" => "Tên đăng nhập của bạn là : $tdn"
+            "dt" => "Tên đăng nhập của bạn là : $mail"
         );
     } else {
         $errors = array(
@@ -98,13 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             "dt" => $errors
         );
     }
-    
+
     echo json_encode($errors);
 }
-/*include '../../database/cnt.php';
-include '../../model/nhanvien.php';
-include '../../model/phongban.php';
-$nvs =new nhanvien($db);
-
-ECHO $nvs->normalText("á á");*/
 ?>

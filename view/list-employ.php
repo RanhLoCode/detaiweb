@@ -1,11 +1,11 @@
-<div class="">
+﻿<div class="">
 
     <h3>Nhân viên</h3>
     <div>
         <ul class="breadcrumb">
-            <li><span class="glyphicon glyphicon-home"></span> <a href="#"> Home
+            <li><span class="glyphicon glyphicon-home"></span> <a href="nhan-vien/xem-danh-sach.html"> Trang chủ
                 </a></li>
-            <li><a href="#"> Nhân viên</a></li>
+            <li><a href=""> Nhân viên</a></li>
         </ul>
     </div>
     <?php if ($_SESSION['idpb'] == 'NS') { ?>
@@ -18,7 +18,7 @@
             </div>
             <div id="addEmp" class="modal fade" role="dialog">
                 <div class="modal-dialog" style="width: 80%">
-                    <form action="../controller/nhanvien/addEmploy.php" method="post">
+                    <form action="controller/nhanvien/addEmploy.php" method="POST">
                         <div class="modal-content">
 
                             <div class="modal-body">
@@ -37,8 +37,8 @@
                                     </div>
                                     <script
                                             src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-                                    <script src="../js/moment.min.js"></script>
-                                    <script src="../bootstrap/bootstrap-datetimepicker.min.js"></script>
+                                    <script src="js/moment.min.js"></script>
+                                    <script src="bootstrap/bootstrap-datetimepicker.min.js"></script>
 
                                     <script type="text/javascript">
 
@@ -57,31 +57,23 @@
                                 <div class="form-group">
                                     <label for="txtPhongban">Phòng ban</label> <select
                                             class="form-control" name="txtPhongban" id="txtPhongban">
-                                        <?php
-                                        $listPb = $pbs->dsphongban("ID,Ten");
-                                        while ($item = $listPb->fetch(PDO::FETCH_ASSOC)) {
+                                       <?php
+                                       $listPb = $pbs->GetDeps();
+                                        foreach ($listPb as $item) {
                                             ?>
                                             <option value="<?php echo $item["ID"] ?>"><?php echo $item['Ten'] ?></option>
                                             <?php
-                                        }
+                                       }
 
                                         ?>
 
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtLuong">Lương</label> <select class="form-control"
-                                                                                name="txtLuong" id="txtLuong">
-                                        <?php
-                                        for ($i = 10; $i <= 100; $i++) {
+                                    <label for="txtLuong">Lương</label>
+                                    <input type="number" class="form-control"
+                                           value="10" name="txtLuong" id="txtLuong"/>
 
-                                            ?>
-
-                                            <option value="<?php echo $i ?>"><?php echo $i ?>$</option>
-                                            <?php
-                                        }
-                                        ?>
-                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtMsThue">Mã số thuế</label> <input
@@ -100,34 +92,38 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="txtCaptcha">
-                                    Nhập mã xác nhận
-                                    <img src="../image/captcha.php"  width="100px" class="img-rounded"/>
+                                        Nhập mã xác nhận
+                                        <img src="image/captcha.php" width="100px" class="img-rounded"/>
                                     </label>
-                                        <input id="txtCaptcha" type="text" name="txtCaptcha" class="form-control" style="margin-top:20px"/>
+                                    <input id="txtCaptcha" type="text" name="txtCaptcha" class="form-control"
+                                           style="margin-top:20px"/>
                                 </div>
                                 <div class="err">
                                     <script>
                                         $('#addEmp form').submit(function (e) {
+                                            $('.err').html('');
+
                                             e.preventDefault();
                                             $.ajax({
                                                 url: this.action,
                                                 type: this.method,
                                                 data: $(this).serialize(),
                                                 success: function (dt) {
-
+                                                   //  alert(dt);
                                                     dt = $.parseJSON(dt);
 
                                                     if (dt.er) {
-                                                        $('.err').html('');
+                                                        $('#txtCaptcha').val('');
                                                         ers = dt.dt;
                                                         for (i = 0; i < ers.length; i++)
                                                             $('.err').append('<p class="text-primary">' + ers[i] + '</p>');
                                                     } else {
                                                         alert(dt.dt);
+                                                     //   $('#addEmp form input').val('');
                                                         location.reload();
 
                                                     }
-                                                    $('#addEmp form label img').attr('src',"<?php echo '../image/captcha.php'?>");
+                                                    $('#addEmp form label img').attr('src', "<?php echo 'image/captcha.php'?>");
 
                                                 },
 
@@ -136,19 +132,23 @@
                                         });
                                     </script>
                                 </div>
-                            </div>
+                           </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-success">Xác nhận</button>
-
+                                <button  type="button" data-dismiss="modal" class="btn btn-danger">
+                                    Đóng
+                                </button>
                             </div>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
     <?php } ?>
     <hr>
-    <div class="panel panel-primary" style="border-radius: 0" ng-app="dsnv">
+
+    <div class="panel panel-primary" style="border-radius: 0">
         <div class="panel-heading">
             <div class="panel-title">
                 <span class="glyphicon glyphicon-bullhorn"></span> Danh sách
@@ -165,7 +165,8 @@
                         <div class="col-xs-4 col-sm-4">
                             <select ng-model="selRecord"
                                     ng-change="getDataFllowRc(selRecord)"
-                                    ng-options="item for item in nRecord" class="form-control"
+                                    ng-options="item as item.s for item in nRecord track by item.id"
+                                    class="form-control"
                                     style="border-radius: 0">
 
                             </select>
@@ -178,9 +179,17 @@
                 </div>
                 <div class="col-md-6 col-sm-6">
 
-                    <input type="text" placeholder="Search" ng-model="it" class="form-control"
+                    <input type="text" placeholder="Search tên nhân viên" ng-model="it" class="form-control"
                            style="border-radius: 0"/>
+                    <?php
+                    if ($_SESSION['idpb'] == 'NS') {
+                        ?>
+                        <select style="margin-top:10px" class="form-control" ng-change="chooseDep()" ng-model="it_pb">
+                            <option value="" selected="selected">--Tìm theo phòng ban--</option>
+                            <option ng-repeat="item in dspb" VALUE='{{item.Ten}}'>{{item.Ten}}</option>
+                        </select>
 
+                    <?php } ?>
                 </div>
             </form>
 
@@ -204,7 +213,7 @@
                                   style="CURSOR: pointer; FONT-size: 10px; position: relative; left: 0; top: -10px; COLOR: #39c;"
                                   class="glyphicon glyphicon-glass"></span>Tên
                         </th>
-                        <th>Ngày sinh</th>
+
                         <th>Email</th>
                         <th>Phòng ban</th>
                         <?php if ($_SESSION['idpb'] == 'NS' || $_SESSION['idpb'] == 'KT') { ?>
@@ -222,15 +231,19 @@
                     </thead>
                     <tbody>
                     <tr CLASS="text-center"
-                        ng-repeat="item in items | orderBy:myorder | filter:{'Ten':it}">
+                        ng-repeat="item in items | orderBy:myorder | filter:{'Ten':it,'TenPB':tenpb}">
                         <td>{{item.ID}}</td>
-                        <td><img class="img-rounded"
-                                 src="../image/avatar/{{item.Hinh}}" height="50"
-                                 alt="Lỗi"></td>
+                        <td>
+                            <a href="nhan-vien/thong-tin-nhan-vien-{{item.ID}}.html">
+                                <img class="img-rounded"
+                                     src="image/avatar/{{item.Hinh}}" height="50"
+                                     alt="Lỗi">
+                            </a>
+                        </td>
                         <td>{{item.Ten}}</td>
-                        <td>{{item.NgaySinh}}</td>
+
                         <td>{{item.Mail}}</td>
-                        <td>{{item.TenPB}}</td>
+                        <td>{{item.TenPB + item.isMn}}</td>
                         <?php if ($_SESSION['idpb'] == 'NS' || $_SESSION['idpb'] == 'KT') { ?>
                             <td>{{item.Luong}}</td>
 
@@ -238,9 +251,9 @@
                         <?php } ?>
                         <?php if ($_SESSION['idpb'] == 'NS') { ?>
                             <td>
-                                <a href="index.php?kind=profile-employ&id={{item.ID}}"><span
+                                <a href="nhan-vien/thong-tin-nhan-vien-{{item.ID}}.html"><span
                                             class="glyphicon glyphicon-pencil"></span></a>
-                                <a class="delEmploy" href="../controller/nhanvien/delEmploy.php?id={{item.ID}}"><span
+                                <a class="delEmploy" href="controller/nhanvien/delEmploy.php?id={{item.ID}}"><span
                                             class="glyphicon glyphicon-trash"></span></a>
                             </td>
                         <?php } ?>
@@ -249,21 +262,34 @@
                 </table>
                 <?php if ($_SESSION['idpb'] == 'NS') { ?>
                     <script>
-                        $('body').on('click', '.delEmploy', function (e) {
-                            e.preventDefault();
-                            r = $(this).parents('tr');
-                            if (confirm('Chắc muốn xóa ?')) {
+                        function requestDel(a, fc) {
+                            r = a.parents('tr');
+                            cf = fc == 0 ? confirm('Chắc muốn xóa ?') : true;
+                            if (cf) {
                                 $.ajax({
-                                    url: $(this).attr('href'),
+                                    url: a.attr('href'),
                                     type: 'get',
+                                    data: {focus: fc},
                                     success: function (rs) {
+                                        //alert(rs); //check error
                                         rs = $.parseJSON(rs);
                                         if (rs.er) {
-                                            ms = "";
-                                            for (i = 0; i < rs.ms.length; i++) {
-                                                ms += rs.ms[i] + "\n";
+                                            ms = rs.ms;
+                                            if (ms.length > 1) {
+                                                s = "";
+                                                for (i = 0; i < ms.length; i++) {
+                                                    s += ms[i] + "\n";
+                                                }
+                                                alert(s);
+                                            } else {
+                                                if (ms[0] == "MN") {
+                                                    if (confirm('Người này là trưởng phòng bạn có chắc xóa?')) {
+                                                        requestDel(a, 1);
+                                                    }
+                                                } else {
+                                                    alert(ms[0]);
+                                                }
                                             }
-                                            alert(ms);
                                         } else {
                                             alert('Thàng công');
                                             r.remove();
@@ -273,62 +299,21 @@
                                 ;
 
                             }
+                        }
+                        $('body').on('click', '.delEmploy', function (e) {
+                            e.preventDefault();
+                            requestDel($(this), 0);
                         });
                     </script>
 
                 <?php } ?>
-                <SPAN class="pull-left">Bạn đang xem {{selRecord}} trong {{total}}
+                <SPAN class="pull-left">Bạn đang xem {{selRecord.vl}} trong {{total}}
 					nhân viên</SPAN>
                 <ul class="employ pagination  pull-right">
                     <li ng-repeat="item in pages" ng-click="nextPage(item.text)"><a
                                 style='cursor: pointer; color: {{item.cl}}'>{{item.text}}</a></li>
                 </ul>
 
-
-                <script>
-                    function getPageContent(sv, sc, pageIndex, rowPage) {
-                        sv.get('../controller/nhanvien/dsnhanvien_theopb.php', {
-                            params: {
-                                pageIndex: pageIndex,
-                                rowPage: rowPage
-                            }
-                        }).then(function (res) {
-
-                            sc.total = res.data.total;
-                            sc.items = res.data.data;
-                            sc.pages = [];
-                            n = res.data.rowEachPage;
-                            var pI = res.data.pageIndex;
-                            for (i = 1; i <= n; i++) {
-                                cl = '';
-                                if (pI == i) {
-                                    cl = 'red';
-                                }
-                                sc.pages.push({'text': i, 'cl': cl});
-
-                            }
-                            sc.nRecord = [10, 20, 30, sc.total];
-                        });
-                    }
-                    app = angular.module('dsnv', []);
-                    app.controller('dsnv', function ($scope, $http) {
-
-                        getPageContent($http, $scope, 1, 10);
-                        $scope.selRecord = 10;
-                        $scope.nextPage = function (index) {
-                            getPageContent($http, $scope, index, $scope.selRecord);
-                        };
-                        $scope.getDataFllowRc = function (rc) {
-                            getPageContent($http, $scope, 1, rc);
-                        };
-                        $scope.order = function (field) {
-
-                            $scope.myorder = field;
-                        };
-                    });
-
-
-                </script>
 
             </div>
 
@@ -340,3 +325,68 @@
 
 
 </div>
+<?php
+$ren['dsnv'] = function () {
+    ?>
+    <script>
+        app.controller('dsnv', function ($scope, $http) {
+
+            function GetDeps() {
+                $http.get('controller/phongban/GetDeps.php').success(function (data) {
+                    $scope.dspb = data;
+                });
+            }
+
+            GetDeps();
+
+            $scope.chooseDep = function () {
+                $scope.tenpb = ($scope.it_pb).toLowerCase();
+                //alert($scope.tenpb);
+            };
+
+            function getPageContent(pageIndex, rowPage) {
+                r = rowPage.vl;
+                $http.get('controller/nhanvien/dsnhanvien_theopb.php', {
+                    params: {
+                        pageIndex: pageIndex,
+                        rowPage: r
+                    }
+                }).then(function (res) {
+
+                    $scope.total = res.data.total;
+                    $scope.items = res.data.data;
+                    $scope.pages = [];
+                    n = res.data.rowEachPage;
+                    var pI = res.data.pageIndex;
+                    for (i = 1; i <= n; i++) {
+                        cl = '';
+                        if (pI == i) {
+                            cl = 'red';
+                        }
+                        $scope.pages.push({'text': i, 'cl': cl});
+
+                    }
+                    $scope.nRecord = [{id: 1, s: '10', vl: 10}, {id: 2, s: '20', vl: 20}
+                        , {id: 4, s: 'Tất cả', vl: $scope.total}];
+
+
+                    $scope.selRecord = rowPage;
+                });
+            }
+
+            getPageContent(1, {id: 1, s: '10', vl: 10});
+
+            $scope.nextPage = function (index) {
+                getPageContent(index, $scope.selRecord);
+            };
+            $scope.getDataFllowRc = function (rc) {
+                getPageContent(1, rc);
+            };
+            $scope.order = function (field) {
+                $scope.myorder = field;
+            };
+        });
+    </script>
+    <?php
+}
+?>

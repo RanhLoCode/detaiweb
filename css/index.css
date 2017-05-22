@@ -46,6 +46,9 @@ body {
 	padding: 10px;
 	padding-left: 40px;
 }
+.list-feat>li>ul>li:hover {
+	background:rgba(255,255,255,0.2);
+}
 
 .list-feat>li>ul>li a {
 	font-size: 14px;

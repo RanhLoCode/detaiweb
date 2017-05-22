@@ -23,12 +23,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $countRows = $nvs->tong_dsnhanvien_theopb($idpb);
     $rowEachPage = ceil($countRows / $rowPage) ;
     $tb = $nvs->dsnhanvien_theopb($idpb, ($pageIndex - 1) * $rowPage, $rowPage)->fetchAll(PDO::FETCH_ASSOC);
-    
+    foreach($tb as $row){
+        $item = $row;
+        $item['isMn'] = $pbs->checkManager($item['IDPhongBan'],$item['ID'])?'(Trường phòng)':'';
+        $tbs[] = $item;
+    }
     $data = array(
         'total'=>$countRows,
         'rowEachPage' =>$rowEachPage ,
         'pageIndex' => $pageIndex,
-        'data' => $tb
+        'data' => $tbs
     );
     
     echo json_encode($data,JSON_NUMERIC_CHECK);

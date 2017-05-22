@@ -20,25 +20,25 @@
         </div>
         <?PHP
 
-        if (isset($_GET['tdn'])) {
-            $tdn = $_GET['tdn'];
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
         } else {
-            $tdn = $_SESSION['tdn'];
+            $id = $_SESSION['id'];
         }
-        $row = $nvs->getInfo('*', $tdn);
-        $pb = $pbs->getInfo('Ten', $row['IDPhongBan'])['Ten'];
+        $emp = $nvs->getEmploy($id);
+        $pb = $pbs->GetDep($emp['IDPhongBan']);
 
         ?>
         <?PHP
 
-        if ($nvs->isExist($tdn)){
-        IF ($_SESSION['idpb'] == 'NS' || $_SESSION['idpb'] == $row['IDPhongBan']){
+        if ($nvs->isExist_id($id)){
+        IF ($_SESSION['idpb'] == 'NS' || $_SESSION['idpb'] == $emp['IDPhongBan']){
         ?>
         <div class="panel-body ">
             <div class="media">
                 <div class="media-left media-middle">
                     <?php
-                    if ($_SESSION['tdn'] == $row['TenDangNhap']) {
+                    if ($_SESSION['id'] == $emp['ID']) {
                    ?>
                     <P class="text-success">
                         <span data-toggle="modal" data-target="#changeAvatar" class="glyphicon glyphicon-pencil"
@@ -46,7 +46,7 @@
                     </P>
                     <div id="changeAvatar" class="modal fade" role="dialog">
                         <div class="modal-dialog">
-                            <form action="../controller/nhanvien/changeAvatar.php" method="post"
+                            <form action="controller/nhanvien/changeAvatar.php" method="post"
                                   enctype="multipart/form-data" class="frmChangeAvatar">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -55,9 +55,9 @@
                                     <DIV CLASS="modal-body">
                                         <div class="container-fluid text-center">
                                             <img CLASS="img-rounded avatar"
-                                                 src="../image/avatar/<?php echo $row['Hinh'] ?>" width="50%"/>
+                                                 src="image/avatar/<?php echo $emp['Hinh'] ?>" width="50%"/>
                                         </div>
-                                        <input type="hidden" value="<?php echo $row['ID'] ?>" name="ID">
+                                        <input type="hidden" value="<?php echo $emp['ID'] ?>" name="ID">
 
                                         <input class="txtAvatar" STYLE="margin-top:10px;" CLASS="form-control"
                                                type="file" name="txtAvatar" accept="image/x-png, image/gif, image/jpeg">
@@ -99,42 +99,48 @@
                         </div>
                     </div>
                     <?php }?>
-                    <img class="img-rounded" src="../image/avatar/<?php echo $row['Hinh'] ?>"
+                    <img class="img-rounded" src="image/avatar/<?php echo $emp['Hinh'] ?>"
                          width="150"/>
 
                 </div>
                 <div CLASS="media-body">
-                    <h1 class="media-heading"><?php echo $row['Ten'] ?></h1>
+                    <h1 class="media-heading"><?php echo $emp['Ten'] ?></h1>
                     <p>
-                        <span>ID</span>: <?php echo $row['ID'] ?>
+                        <span>ID</span>: <?php echo $emp['ID'] ?>
                     </p>
-                    <?php
-                    if ($_SESSION['tdn'] == $row['TenDangNhap']) {
-                        ?>
+
                         <p>
-                            <span>Tên đăng nhập </span>: <?php echo $row['TenDangNhap'] ?>
+                            <span>Tên đăng nhập </span>: <?php echo $emp['Mail'] ?>
                         </p>
-                    <?php } ?>
+
                     <p>
-                        <span>Ngày sinh</span>: <?php echo $row['NgaySinh'] ?>
+                        <span>Ngày sinh</span>: <?php echo $emp['NgaySinh'] ?>
                     </p>
                     <p>
-                        <span>Mail</span>: <?php echo $row['Mail'] ?>
+                        <span>Mail</span>: <?php echo $emp['Mail'] ?>
                     </p>
                     <p>
-                        <span>Phòng ban</span>:<?php echo $pb ?>
+                        <span>Phòng ban</span>:<?php echo $pb['Ten'] ?>
                     </p>
                     <p>
-                        <span>Lương</span>: <?php echo $row['Luong'] ?>
+
+                        <span>Lương</span>: <?php
+                        if($_SESSION['isMn'] || $_SESSION['idpb'] == 'NS'){
+                        echo $emp['Luong'] ;
+                        }else {
+                            echo '<span class="text-danger">Bạn không có quyền xem</span>';
+                        }
+
+                        ?>
                     </p>
                     <p>
-                        <span>Mã số thuế</span>: <?php echo $row['MaSoThue'] ?>
+                        <span>Mã số thuế</span>: <?php echo $emp['MaSoThue'] ?>
                     </p>
                 </div>
             </div>
         </div>
         <?php if ($_SESSION['idpb'] == 'NS'){
-        if ($row['IDPhongBan'] != 'NS' || ($row['IDPhongBan'] == 'NS' && $_SESSION['isMn'])){
+        if ($emp['IDPhongBan'] != 'NS' || ($emp['IDPhongBan'] == 'NS' && $_SESSION['isMn'])){
         ?>
         <div class="panel-footer edit-pen" style="cursor:pointer">
             <span class="glyphicon glyphicon-pencil"></span>Chỉnh sửa
@@ -152,29 +158,29 @@
     </div>
 
     <div style="display: none" class="edit-info panel panel-danger">
-        <form action="../controller/nhanvien/editEmploy.php" method="post">
+        <form action="controller/nhanvien/editEmploy.php" method="post">
             <div class="panel-heading">
-                <h3 class="panel-title">Sửa - <?php echo $row['ID'] ?></h3>
+                <h3 class="panel-title">Sửa - <?php echo $emp['ID'] ?></h3>
             </div>
             <div class="panel-body">
-                <input name="txtID"
-                       class="form-control" VALUE=" <?php echo $row['ID'] ?>"/>
+                <input name="txtID" type="hidden"
+                       class="form-control" VALUE=" <?php echo $emp['ID'] ?>"/>
                 <div class="form-group">
                     <label for="txtName">Tên</label> <input id="txtName" name="txtName"
-                                                            class="form-control" VALUE=" <?php echo $row['Ten'] ?>"/>
+                                                            class="form-control" VALUE=" <?php echo $emp['Ten'] ?>"/>
                 </div>
                 <div class="form-group">
                     <label for="txtBirthday">Ngày sinh</label>
                     <div class='input-group date' id='txtBirthday'>
-                        <input name="txtBirthday" value="01/01/1992" type='text' value=" <?php echo $row['NgaySinh'] ?>"
+                        <input name="txtBirthday" value="01/01/1992" type='text' value=" <?php echo $emp['NgaySinh'] ?>"
                                class="form-control"/> <span class="input-group-addon"> <span
                                     class="glyphicon glyphicon-calendar"> </span>
 						</span>
                     </div>
                     <script
                             src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-                    <script src="../js/moment.min.js"></script>
-                    <script src="../bootstrap/bootstrap-datetimepicker.min.js"></script>
+                    <script src="js/moment.min.js"></script>
+                    <script src="bootstrap/bootstrap-datetimepicker.min.js"></script>
 
                     <script type="text/javascript">
 
@@ -187,7 +193,7 @@
                     </script>
                 </div>
                 <div class="form-group">
-                    <label for="txtMail">Mail</label> <input id="txtMail" value="<?php echo $row['Mail'] ?>"
+                    <label for="txtMail">Mail</label> <input id="txtMail" value="<?php echo $emp['Mail'] ?>"
                                                              name="txtMail" class="form-control"/>
                 </div>
                 <div class="form-group">
@@ -195,11 +201,11 @@
                     <select
                             class="form-control" name="txtPhongban" id="txtPhongban">
                         <?php
-                        $listPb = $pbs->dsphongban("ID,Ten");
-                        while ($item = $listPb->fetch(PDO::FETCH_ASSOC)) {
+                        $listPb = $pbs->GetDeps();
+                        foreach ($listPb as $row) {
                             ?>
-                            <option <?php if ($item["ID"] == $row['IDPhongBan']) echo 'selected="selected"'; ?>
-                                    value="<?php echo $item["ID"] ?>"><?php echo $item['Ten'] ?></option>
+                            <option <?php if ($row["ID"] == $emp['IDPhongBan']) echo 'selected="selected"'; ?>
+                                    value="<?php echo $row["ID"] ?>"><?php echo $row['Ten'] ?></option>
                             <?php
                         }
 
@@ -208,24 +214,14 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="txtLuong">Lương</label> <select class="form-control"
-                                                                name="txtLuong" id="txtLuong">
-                        <?php
-                        for ($i = 10; $i <= 100; $i++) {
+                    <label for="txtLuong">Lương</label>
+                    <input type="number" class="form-control" value="<?php echo $emp['Luong'] ?>"
+                                                                name="txtLuong" id="txtLuong"/>
 
-                            ?>
-
-                            <option <?php if ($row['Luong'] == $i) echo 'selected="selected"'; ?>
-                                    value="<?php echo $i ?>"><?php echo $i ?>$
-                            </option>
-                            <?php
-                        }
-                        ?>
-                    </select>
                 </div>
                 <div class="form-group">
                     <label for="txtMsThue">Mã số thuế</label>
-                    <input value=" <?php echo $row['MaSoThue'] ?>"
+                    <input value=" <?php echo $emp['MaSoThue'] ?>"
                            class="form-control" name="txtMsThue" id="txtMsThue">
 
 

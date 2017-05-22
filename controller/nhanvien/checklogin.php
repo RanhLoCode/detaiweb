@@ -1,19 +1,19 @@
 			    <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         session_start();
-        if (!isset($_SESSION['tdn'])) {
+        if (!isset($_SESSION['id'])) {
             
             include '../../database/cnt.php';
             include '../../model/nhanvien.php';
-            
-            $tk = $_POST['txtTk'];
+
+            $tdn = $_POST['txtTdn'];
             $mk = $_POST['txtMk'];
             
-            if (empty($tk))
+            if (empty($tdn))
                 $errors[] = "Tên đăng nhập rỗng";
             
             $pttTk = '#^([a-zA-Z]|_)([a-zA-Z0-9]|_){2,100}#';
-            if (! preg_match($pttTk, $tk)) {
+            if (! preg_match($pttTk, $tdn)) {
                 $errors[] = "Tên đăng nhập không đúng định dạng : a-zA-Z0-9,_ , 3-100 kí tự";
             }
             
@@ -27,10 +27,14 @@
                 if (empty($errors)) {
                     
                     $nvs = new nhanvien($db);
-                    $rs = $nvs->dangnhap($tk, $mk);
+                    $rs = $nvs->dangnhap($tdn, $mk);
                     if ($rs) {
-                        $_SESSION['tdn'] = $tk;
-                      
+                        $info = $nvs->getInfo("ID,IDPhongBan","Mail = '$tdn'");
+                        $_SESSION['id'] = $info['ID'];
+                        $_SESSION['mail']  = $tdn;
+                        $_SESSION['idpb'] =$info['IDPhongBan'];
+
+                   //     print_r($_SESSION);
                         $errors = null;
                     } else {
                         $errors[] = 'Tên đăng nhập hoặc mật khẩu không chính xác !';
