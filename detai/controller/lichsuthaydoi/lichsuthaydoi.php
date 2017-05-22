@@ -26,11 +26,12 @@ if(isset($_SESSION['id'])) {
         $itemTb = array();
         $info_nv = $nvs->getInfo("Ten","ID = ".$row['IDNhanVienTHTD']);
 
-       // $itemTb['id'] = $row['ID'];
+        $itemTb['id'] = $row['ID'];
         $itemTb['idnv'] = $row['IDNhanVienTHTD'];
         $itemTb['tennv'] = !isset($info_nv['Ten']) || $info_nv['Ten'] == null ? 'Nhân viên này đã bị xóa':$info_nv['Ten'];
         $itemTb['date'] = $row['NgayThucThi'];
         $itemTb['note'] = $row['ChuThich'];
+        $itemTb['isRead'] = $row['DaXem'] == 0 ? '#ccffcc' : '#313332';
         $tb[] = $itemTb;
 
     }

@@ -50,7 +50,7 @@
                 </form>
                 <div class=" pull-right">
                     <ul class="pagination">
-                        <li ng-repeat="item in pages" ng-click="selPage(item.vl)"><a href="#"
+                        <li ng-repeat="item in pages" ng-click="selPage(item.vl)"><a href="#" onclick="return false"
                                                                                      STYLE="color:{{item.cl}};"
                             >{{item.vl}}</a></li>
                     </ul>
@@ -88,7 +88,7 @@
                             <td>{{item.tennv}}</td>
                             <td>{{item.date}}</td>
                             <td>
-                                <button ng-click="show(item.note)" data-toggle="modal" data-target="#detail-info" class="btn btn-success">Chi tiết</button>
+                                <button style="color:{{item.isRead}};" ng-click="show(item.note,item.id)" data-toggle="modal" data-target="#detail-info" class="btn btn-success">Chi tiết</button>
                             </td>
 
                         </tr>
@@ -98,7 +98,7 @@
                     <?php include 'change-info-detail.html' ?>
                     <div class=" pull-right">
                         <ul class="pagination">
-                            <li ng-repeat="item in pages" ng-click="selPage(item.vl)"><a href="#"
+                            <li ng-repeat="item in pages" ng-click="selPage(item.vl)"><a href="#" onclick="return false"
                                                                                       STYLE="color:{{item.cl}};"
                                 >{{item.vl}}</a></li>
                         </ul>
@@ -108,8 +108,21 @@
                         ?>
                         <script>
                                 app.controller('change-history',function($scope,$http){
-                                    $scope.show = function(note){
+                                    $scope.show = function(note,id){
                                         $scope.note = note;
+                                        $http({
+                                            url:'controller/lichsuthaydoi/XacNhanXem.php',
+                                            method:'POST',
+                                            data : 'id='+id,
+                                            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                                        }).success(function(dt){
+                                            //alert(dt);
+                                            if(dt){
+                                                GetData(1,{id:1,s:10,vl:10});
+                                            }else {
+                                                alert('Xảy ra lỗi');
+                                            }
+                                        });
                                     };
                                     $scope.setOrder = function(field){
                                             $scope.order  =field;
@@ -131,6 +144,7 @@
 
                                             }
                                             $scope.his = data.tb;
+                                          //  alert(JSON.stringify(data.tb));
                                             $scope.nRecord = [
                                                 {id:1,s:10,vl:10},
                                                 {id:2,s:20,vl:20},
@@ -155,6 +169,10 @@
                                     $scope.selPage = function (pageIndex) {
                                         GetData(pageIndex,{id: 1, s: 10, vl: 10} );
                                     };
+
+
+
+
                                 });
                         </script>
                     <?php } ?>

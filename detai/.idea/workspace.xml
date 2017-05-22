@@ -24,31 +24,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name=".htaccess" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.htaccess">
+      <file leaf-file-name="delEmploy.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/nhanvien/delEmploy.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="92" lean-forward="false" selection-start-line="8" selection-start-column="92" selection-end-line="8" selection-end-column="92" />
+            <state relative-caret-position="328">
+              <caret line="39" column="51" lean-forward="false" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list-employ.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/view/list-employ.php">
+      <file leaf-file-name="lichsuthaydoi.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/lichsuthaydoi.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="68" column="57" lean-forward="false" selection-start-line="68" selection-start-column="57" selection-end-line="68" selection-end-column="57" />
-              <folding />
+            <state relative-caret-position="515">
+              <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
+              <folding>
+                <marker date="1495391556366" expanded="true" signature="187:216" ph="select * fro... lichsuthaydoitt" />
+                <marker date="1495391556366" expanded="true" signature="297:343" ph="select * fro... lichsuthaydoitt" />
+                <marker date="1495391556366" expanded="true" signature="446:488" ph="select * fro... lichsuthaydoitt" />
+                <marker date="1495391556366" expanded="true" signature="579:615" ph="update lichs... " />
+                <marker date="1495391556366" expanded="true" signature="579:631" ph="update lichs... " />
+                <marker date="1495391556366" expanded="true" signature="812:939" ph="INSERT into lichsuthaydoitt... " />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addEmploy.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="addEmploy.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controller/nhanvien/addEmploy.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+            <state relative-caret-position="39">
+              <caret line="77" column="16" lean-forward="true" selection-start-line="77" selection-start-column="16" selection-end-line="77" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -101,9 +108,7 @@
         <option value="$PROJECT_DIR$/model/phongban.php" />
         <option value="$PROJECT_DIR$/model/nhanvien.php" />
         <option value="$PROJECT_DIR$/controller/nhanvien/delEmploy.php" />
-        <option value="$PROJECT_DIR$/model/lichsuthaydoi.php" />
         <option value="$PROJECT_DIR$/view/change-info-detail.php" />
-        <option value="$PROJECT_DIR$/controller/lichsuthaydoi/lichsuthaydoi.php" />
         <option value="$PROJECT_DIR$/view/topPage.php" />
         <option value="$PROJECT_DIR$/view/change-info-detail.html" />
         <option value="$PROJECT_DIR$/view/login.php" />
@@ -111,12 +116,16 @@
         <option value="$PROJECT_DIR$/view/profile-employ.php" />
         <option value="$PROJECT_DIR$/view/exit.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/view/index.php" />
         <option value="$PROJECT_DIR$/view/changepass-emp.php" />
         <option value="$PROJECT_DIR$/view/list-payment.php" />
-        <option value="$PROJECT_DIR$/view/manager.php" />
         <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/view/list-employ.php" />
+        <option value="$PROJECT_DIR$/controller/lichsuthaydoi/soluongthongbao.php" />
+        <option value="$PROJECT_DIR$/view/index.php" />
+        <option value="$PROJECT_DIR$/controller/lichsuthaydoi/lichsuthaydoi.php" />
+        <option value="$PROJECT_DIR$/controller/lichsuthaydoi/XacNhanXem.php" />
+        <option value="$PROJECT_DIR$/view/manager.php" />
+        <option value="$PROJECT_DIR$/model/lichsuthaydoi.php" />
       </list>
     </option>
   </component>
@@ -183,25 +192,7 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="image">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="detai">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="image">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="avatar">
+            <PATH_ELEMENT USER_OBJECT="model">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -216,6 +207,10 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="controller">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="phongban">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -251,10 +246,6 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="luong">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT USER_OBJECT="Root">
@@ -276,6 +267,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -336,7 +328,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -345,16 +336,16 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\detai\view" />
-      <recent name="C:\xampp\htdocs\detai\image\avatar" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\detai\controller\lichsuthaydoi" />
       <recent name="C:\xampp\htdocs\detai\model" />
       <recent name="C:\xampp\htdocs\detai\view" />
       <recent name="C:\xampp\htdocs\detai\controller\nhanvien" />
       <recent name="C:\xampp\htdocs\detai\image" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\detai\view" />
+      <recent name="C:\xampp\htdocs\detai\image\avatar" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -492,11 +483,13 @@
       <workItem from="1495105677219" duration="10564000" />
       <workItem from="1495214085133" duration="3610000" />
       <workItem from="1495373555754" duration="4699000" />
+      <workItem from="1495378742985" duration="980000" />
+      <workItem from="1495385962920" duration="5710000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="188780000" />
+    <option name="totallyTimeSpent" value="195470000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -559,20 +552,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/model/nhanvien.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/cnt.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="60" lean-forward="true" selection-start-line="29" selection-start-column="60" selection-end-line="29" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/nhanvien/addEmploy.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -692,13 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/phongban/setManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/nhanvien/dsnhanvien_theopb.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -724,18 +696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="549">
           <caret line="52" column="2" lean-forward="true" selection-start-line="52" selection-start-column="2" selection-end-line="52" selection-end-column="2" />
-          <folding>
-            <marker date="1494752113565" expanded="true" signature="170:197" ph="select * fro... luongnhanvien" />
-            <marker date="1494752113565" expanded="true" signature="179:197" ph="delete from " />
-            <marker date="1494752113565" expanded="true" signature="285:325" ph="select * fro... luongnhanvien" />
-            <marker date="1494752113565" expanded="true" signature="285:341" ph="select * fro... luongnhanvien" />
-            <marker date="1494752113565" expanded="true" signature="416:460" ph="update luong... " />
-            <marker date="1494752113565" expanded="true" signature="416:473" ph="update luong... " />
-            <marker date="1494752113565" expanded="true" signature="416:486" ph="update luong... " />
-            <marker date="1494752113565" expanded="true" signature="416:488" ph="update luong... " />
-            <marker date="1494752113565" expanded="true" signature="692:786" ph="INSERT INTO `luongnhanvien`... " />
-            <marker date="1494752113565" expanded="true" signature="1018:1068" ph="delete from " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -773,15 +733,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="430">
           <caret line="28" column="45" lean-forward="true" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/nhanvien/delEmploy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -813,43 +764,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/lichsuthaydoi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="31" column="20" lean-forward="false" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/lichsuthaydoi/lichsuthaydoi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="37" lean-forward="false" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/nhanvien/editEmploy.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1326">
           <caret line="78" column="1" lean-forward="false" selection-start-line="78" selection-start-column="1" selection-end-line="78" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/phongban.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1495100432610" expanded="true" signature="167:189" ph="select ${$st... phongban" />
-            <marker date="1495100432610" expanded="true" signature="315:350" ph="select ${$co... phongban" />
-            <marker date="1495100432610" expanded="true" signature="573:608" ph="select 1 fro... phongban" />
-            <marker date="1495100432610" expanded="true" signature="903:953" ph="select 1 fro... phongban" />
-            <marker date="1495100432610" expanded="true" signature="1093:1156" ph="select 1 fro... phongban" />
-            <marker date="1495100432610" expanded="true" signature="1400:1426" ph="delete from " />
-            <marker date="1495100432610" expanded="true" signature="1400:1427" ph="delete from " />
-            <marker date="1495100432610" expanded="true" signature="1663:1736" ph="update phong... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -865,14 +783,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
           <caret line="72" column="59" lean-forward="false" selection-start-line="72" selection-start-column="59" selection-end-line="72" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/chooseManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="27" column="44" lean-forward="true" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -910,14 +820,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/changepass-emp.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1564">
@@ -936,34 +838,128 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/manager.php">
+    <entry file="file://$PROJECT_DIR$/view/list-employ.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="29" lean-forward="false" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        <state relative-caret-position="1122">
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="92" lean-forward="false" selection-start-line="8" selection-start-column="92" selection-end-line="8" selection-end-column="92" />
+        <state relative-caret-position="85">
+          <caret line="5" column="31" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="31" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/lichsuthaydoi/soluongthongbao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="25" lean-forward="true" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/lichsuthaydoi/lichsuthaydoi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="28" column="35" lean-forward="true" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="220" column="19" lean-forward="true" selection-start-line="220" selection-start-column="19" selection-end-line="220" selection-end-column="19" />
+          <folding>
+            <element signature="e#1333#1398#0#HTML" expanded="true" />
+            <element signature="e#1456#1558#0#HTML" expanded="true" />
+            <element signature="e#1677#1714#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/manager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="549">
+          <caret line="134" column="26" lean-forward="true" selection-start-line="134" selection-start-column="26" selection-end-line="134" selection-end-column="26" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/chooseManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-413">
+          <caret line="37" column="19" lean-forward="true" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/phongban/setManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/lichsuthaydoi/XacNhanXem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/phongban.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="72" column="2" lean-forward="false" selection-start-line="72" selection-start-column="2" selection-end-line="72" selection-end-column="2" />
+          <folding>
+            <marker date="1495100432610" expanded="true" signature="167:189" ph="select ${$st... phongban" />
+            <marker date="1495100432610" expanded="true" signature="315:350" ph="select ${$co... phongban" />
+            <marker date="1495100432610" expanded="true" signature="573:608" ph="select 1 fro... phongban" />
+            <marker date="1495100432610" expanded="true" signature="903:953" ph="select 1 fro... phongban" />
+            <marker date="1495100432610" expanded="true" signature="1093:1156" ph="select 1 fro... phongban" />
+            <marker date="1495100432610" expanded="true" signature="1400:1426" ph="delete from " />
+            <marker date="1495100432610" expanded="true" signature="1400:1427" ph="delete from " />
+            <marker date="1495100432610" expanded="true" signature="1663:1736" ph="update phong... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/nhanvien/delEmploy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="39" column="51" lean-forward="false" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/lichsuthaydoi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
+          <folding>
+            <marker date="1495391556366" expanded="true" signature="187:216" ph="select * fro... lichsuthaydoitt" />
+            <marker date="1495391556366" expanded="true" signature="297:343" ph="select * fro... lichsuthaydoitt" />
+            <marker date="1495391556366" expanded="true" signature="446:488" ph="select * fro... lichsuthaydoitt" />
+            <marker date="1495391556366" expanded="true" signature="579:615" ph="update lichs... " />
+            <marker date="1495391556366" expanded="true" signature="579:631" ph="update lichs... " />
+            <marker date="1495391556366" expanded="true" signature="812:939" ph="INSERT into lichsuthaydoitt... " />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/nhanvien/addEmploy.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/list-employ.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="68" column="57" lean-forward="false" selection-start-line="68" selection-start-column="57" selection-end-line="68" selection-end-column="57" />
+        <state relative-caret-position="39">
+          <caret line="77" column="16" lean-forward="true" selection-start-line="77" selection-start-column="16" selection-end-line="77" selection-end-column="16" />
           <folding />
         </state>
       </provider>

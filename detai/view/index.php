@@ -30,7 +30,7 @@ $pb = $pbs->GetDep($emp['IDPhongBan']);
     <nav class="navbar navbar-fixed-top navbar-inverse">
         <div class="navbar-header">
             <div class="navbar-brand">
-                <a class="none-dec" href="?">Admin</a> <span
+                <a class="none-dec" href="quan-tri">Admin</a> <span
                         class="btn-list-feat glyphicon glyphicon-menu-hamburger pull-right hidden-md hidden-lg"
                         style="margin-left: 10px; color: white; font-size: 20px; cursor: pointer"></span>
 
@@ -42,13 +42,13 @@ $pb = $pbs->GetDep($emp['IDPhongBan']);
                 style="position: relative; top: 10px;">
                 <li>
 
-                    <div class="dropdown">
-                        <a href="#"
+                    <div class="dropdown" ng-controller="notification">
+                        <a href="danh-sach-thay-doi"
                            style="position: relative; top: -10px; left: 0; background: none">
 						<span class="badge"
-                              style="background: #39c; color: white; position: relative; top: -12px; left: 10px; font-size: 9px;">5</span>
+                              style="background: #ff4040; color: white; position: relative; top: -12px; left: 10px; font-size: 9px;">{{count}}</span>
                             <span class="glyphicon glyphicon-bell"
-                                  style="font-size: 18px; color: #ff4040"></span>
+                                  style="font-size: 18px; color: white"></span>
                         </a>
                         <button class="empty" style="background: none;" type="button"
                                 id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
@@ -210,7 +210,16 @@ $pb = $pbs->GetDep($emp['IDPhongBan']);
 
         app = angular.module('qlnv', []);
 
+        app.controller('notification',function($scope,$http){
+                GetCount = function () {
+                    $http.get('controller/lichsuthaydoi/soluongthongbao.php').success(function (dt) {
+                       $scope.count  = dt;
+                    });
 
+
+                };
+                GetCount();
+        });
     </script>
 <?php
 InitPosRender("dsnv");

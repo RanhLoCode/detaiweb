@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 21, 2017 lúc 04:50 CH
+-- Thời gian đã tạo: Th5 22, 2017 lúc 03:01 CH
 -- Phiên bản máy phục vụ: 10.1.21-MariaDB
 -- Phiên bản PHP: 7.0.15
 
@@ -21,93 +21,58 @@ USE `ql_nhanvien`;
 --
 -- Cấu trúc bảng cho bảng `lichsuthaydoitt`
 --
+-- Tạo: Th5 21, 2017 lúc 05:18 CH
+--
 
-CREATE TABLE `lichsuthaydoitt` (
-  `ID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `lichsuthaydoitt` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `IDNhanVienTHTD` int(11) NOT NULL,
   `ChuThich` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `NgayThucThi` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `NgayThucThi` datetime NOT NULL,
+  `DaXem` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`ID`),
+  KEY `IDNhanVienTHTD` (`IDNhanVienTHTD`)
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- RELATIONS FOR TABLE `lichsuthaydoitt`:
+--   `IDNhanVienTHTD`
+--       `nhanvien` -> `ID`
+--
 
 --
 -- Đang đổ dữ liệu cho bảng `lichsuthaydoitt`
 --
 
-INSERT INTO `lichsuthaydoitt` (`ID`, `IDNhanVienTHTD`, `ChuThich`, `NgayThucThi`) VALUES
-(8, 121, 'Nhân viên phúc sáng hc đã xóa 114 khỏi danh sách nhân viên', '2017-05-18 00:00:00'),
-(9, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : đình thắng', '2017-05-18 00:00:00'),
-(10, 121, 'Nhân viên phúc sáng hc đã sửa thông tin nhân viên 115: sửa tên từ Phúc thành Phúc CHÓ', '2017-05-18 00:00:00'),
-(11, 121, 'Nhân viên phúc sáng hc đã sửa thông tin nhân viên 127: ,sửa ngày sinh từ 1992-01-01 thành 2001-01-31', '2017-05-18 19:54:02'),
-(12, 121, 'Nhân viên phúc sáng hc đã sửa thông tin phòng ban TC:', '2017-05-18 20:58:13'),
-(13, 121, 'Nhân viên phúc sáng hc đã xóa 116 khỏi danh sách nhân viên', '2017-05-18 20:58:13'),
-(14, 121, 'Nhân viên phúc sáng hc đã sửa thông tin nhân viên 121: ,sửa mã số thuế từ 11 thành 1-122-00-555-3', '2017-05-21 21:03:15'),
-(15, 121, 'Nhân viên phúc sáng hc đã sửa thông tin phòng ban KT:', '2017-05-21 21:06:30'),
-(16, 121, 'Nhân viên phúc sáng hc đã xóa 115 khỏi danh sách nhân viên', '2017-05-21 21:06:31'),
-(17, 121, 'Nhân viên phúc sáng hc đã xóa 127 khỏi danh sách nhân viên', '2017-05-21 21:06:36'),
-(18, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : UserEmploy', '2017-05-21 21:14:05'),
-(19, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : UserEmploy', '2017-05-21 21:15:25'),
-(20, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : UserEmploy', '2017-05-21 21:15:45'),
-(21, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : UserEmploy', '2017-05-21 21:16:07'),
-(22, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : UserEmploy', '2017-05-21 21:16:32'),
-(23, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauEmp', '2017-05-21 21:17:20'),
-(24, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:17:48'),
-(25, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:18:10'),
-(26, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:18:31'),
-(27, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:21:08'),
-(28, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:21:28'),
-(29, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:21:50'),
-(30, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:22:09'),
-(31, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:22:29'),
-(32, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:23:25'),
-(33, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:23:48'),
-(34, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:24:51'),
-(35, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:25:35'),
-(36, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:26:02'),
-(37, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:26:39'),
-(38, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:29:39'),
-(39, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauq', '2017-05-21 21:30:17'),
-(40, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:30:45'),
-(41, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauax', '2017-05-21 21:31:07'),
-(42, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucaups', '2017-05-21 21:31:33'),
-(43, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:32:00'),
-(44, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:32:34'),
-(45, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:33:15'),
-(46, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:34:12'),
-(47, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:34:33'),
-(48, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucaud', '2017-05-21 21:35:00'),
-(49, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaa', '2017-05-21 21:35:27'),
-(50, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:36:31'),
-(51, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauqa', '2017-05-21 21:37:19'),
-(52, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucausss', '2017-05-21 21:37:37'),
-(53, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauss', '2017-05-21 21:37:58'),
-(54, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:38:13'),
-(55, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucausss', '2017-05-21 21:38:33'),
-(56, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucaud', '2017-05-21 21:39:02'),
-(57, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauas', '2017-05-21 21:39:25'),
-(58, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:40:31'),
-(59, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauE', '2017-05-21 21:40:51'),
-(60, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauAAA', '2017-05-21 21:42:13'),
-(61, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaa', '2017-05-21 21:42:30'),
-(62, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucausss', '2017-05-21 21:42:52'),
-(63, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucausss', '2017-05-21 21:43:22'),
-(64, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:44:09'),
-(65, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:44:34'),
-(66, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:44:50'),
-(67, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:45:07'),
-(68, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:45:25'),
-(69, 121, 'Nhân viên phúc sáng hc đã thêm 1 nhân viên : hucauaaa', '2017-05-21 21:45:50');
+INSERT INTO `lichsuthaydoitt` (`ID`, `IDNhanVienTHTD`, `ChuThich`, `NgayThucThi`, `DaXem`) VALUES
+(73, 121, 'Nhân viên phúc sáng hc đã sửa thông tin phòng ban KD:', '2017-05-22 01:22:08', 1),
+(74, 121, 'Nhân viên phúc sáng hc đã sửa thông tin phòng ban KD:', '2017-05-22 01:22:20', 1),
+(75, 121, 'Nhân viên phúc sáng hc đã sửa thông tin phòng ban KD: ,sửa trường phòng từ 128 thành 132', '2017-05-22 01:26:24', 1),
+(76, 121, 'Nhân viên phúc sáng hc đã xóa 130 khỏi danh sách nhân viên', '2017-05-22 01:32:42', 1),
+(77, 161, 'Nhân viên hucauqa đã thêm 1 nhân viên : hucauE', '2017-05-22 01:37:41', 1),
+(78, 121, 'Nhân viên phúc sáng hc đã sửa thông tin phòng ban KD: ,sửa trường phòng từ 132 thành 140', '2017-05-22 13:46:52', 1);
 
 -- --------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `luongnhanvien`
 --
+-- Tạo: Th5 16, 2017 lúc 08:07 SA
+--
 
-CREATE TABLE `luongnhanvien` (
-  `ID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `luongnhanvien` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `IDNhanVien` int(11) NOT NULL,
-  `NgayCuoiNhanLuong` date NOT NULL DEFAULT '2000-01-01'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `NgayCuoiNhanLuong` date NOT NULL DEFAULT '2000-01-01',
+  PRIMARY KEY (`ID`),
+  KEY `IDNhanVien` (`IDNhanVien`)
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- RELATIONS FOR TABLE `luongnhanvien`:
+--   `IDNhanVien`
+--       `nhanvien` -> `ID`
+--
 
 --
 -- Đang đổ dữ liệu cho bảng `luongnhanvien`
@@ -115,16 +80,11 @@ CREATE TABLE `luongnhanvien` (
 
 INSERT INTO `luongnhanvien` (`ID`, `IDNhanVien`, `NgayCuoiNhanLuong`) VALUES
 (13, 121, '2017-05-16'),
-(14, 128, '2017-05-21'),
-(15, 129, '2017-05-21'),
-(16, 130, '2017-05-21'),
 (17, 131, '2017-05-21'),
 (18, 132, '2017-05-21'),
 (19, 133, '2017-05-21'),
 (20, 134, '2017-05-21'),
-(21, 135, '2017-05-21'),
 (22, 136, '2017-05-21'),
-(23, 137, '2017-05-21'),
 (24, 138, '2017-05-21'),
 (25, 139, '2017-05-21'),
 (26, 140, '2017-05-21'),
@@ -166,16 +126,19 @@ INSERT INTO `luongnhanvien` (`ID`, `IDNhanVien`, `NgayCuoiNhanLuong`) VALUES
 (62, 176, '2017-05-21'),
 (63, 177, '2017-05-21'),
 (64, 178, '2017-05-21'),
-(65, 179, '2017-05-21');
+(65, 179, '2017-05-21'),
+(66, 183, '2017-05-21');
 
 -- --------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `nhanvien`
 --
+-- Tạo: Th5 18, 2017 lúc 11:58 SA
+--
 
-CREATE TABLE `nhanvien` (
-  `ID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `nhanvien` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Ten` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `NgaySinh` date NOT NULL DEFAULT '1990-01-01',
   `Mail` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -184,25 +147,29 @@ CREATE TABLE `nhanvien` (
   `MaSoThue` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `MatKhau` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Hinh` varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT 'a',
-  `Action_User` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `Action_User` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `Mail` (`Mail`),
+  KEY `IDPhongBan` (`IDPhongBan`)
+) ENGINE=InnoDB AUTO_INCREMENT=184 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- RELATIONS FOR TABLE `nhanvien`:
+--   `IDPhongBan`
+--       `phongban` -> `ID`
+--
 
 --
 -- Đang đổ dữ liệu cho bảng `nhanvien`
 --
 
 INSERT INTO `nhanvien` (`ID`, `Ten`, `NgaySinh`, `Mail`, `IDPhongBan`, `Luong`, `MaSoThue`, `MatKhau`, `Hinh`, `Action_User`) VALUES
-(121, 'phúc sáng hc', '2001-01-19', 'sang-hc@yahoo.com', 'NS', 10, '1-122-00-555-3', '62e6892a9d21c10e07135b4ff4136115', '121bCkBimRh5IjoZJQS3wyHc0gA8L1KNMf4leVOzGanWDvpU2dqYs67TPFX9xtErutab.jpg', 121),
-(128, 'UserEmploy', '1992-01-01', 'UserEmploy@yahoo.com', 'KD', 10, '11', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
-(129, 'UserEmploy', '1992-01-01', 'UserEmploy1@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
-(130, 'UserEmploy', '1992-01-01', 'UserEmploy2@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(121, 'phúc sáng hc', '2001-01-19', 'sang-hc@yahoo.com', 'NS', 10, '1-122-00-555-3', '62e6892a9d21c10e07135b4ff4136115', '121thxV8D4gUIc2RqboyWK6pJj5YdC3s1HaeMAfP0kBiLlvSOTEGw7Xn9urQzmFNZ349142.jpg', 121),
 (131, 'UserEmploy', '1992-01-01', 'UserEmploy3@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
 (132, 'UserEmploy', '1992-01-01', 'UserEmploy4@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
 (133, 'hucauEmp', '1992-01-01', 'hucau@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
 (134, 'hucauE', '1992-01-01', 'hucauE@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
-(135, 'hucauE', '1992-01-01', 'hucauE1@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
 (136, 'hucauE', '1992-01-01', 'hucauE2@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
-(137, 'hucauE', '1992-01-01', 'hucauE3@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
 (138, 'hucauE', '1992-01-01', 'hucauE4@yahoo.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
 (139, 'hucauE', '1992-01-01', 'hucauE@yahoo.comx', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
 (140, 'hucauE', '1992-01-01', 'hucauE@savitar.com', 'KD', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
@@ -244,7 +211,8 @@ INSERT INTO `nhanvien` (`ID`, `Ten`, `NgaySinh`, `Mail`, `IDPhongBan`, `Luong`, 
 (176, 'hucauaaa', '1992-01-01', 'hucau@yahoo.com.vnqlkp', 'KT', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
 (177, 'hucauaaa', '1992-01-01', 'hucau@yahoo.com.vnqksx', 'KT', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
 (178, 'hucauaaa', '1992-01-01', 'hucau@yahoo.com.vnaqkl', 'KT', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
-(179, 'hucauaaa', '1992-01-01', 'hucau@yahoo.com.vnadd', 'KT', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121);
+(179, 'hucauaaa', '1992-01-01', 'hucau@yahoo.com.vnadd', 'KT', 10, '1', 'dd0d131132ce03e18b0c25b4c5f86ef3', 'default-avatar.png', 121),
+(183, 'hucauE', '1992-01-01', 'hucau123@yahoo.com.vnp', 'KD', 10, '1', '64808ef605fc9b5c28bc2946e12d0e49', 'default-avatar.png', 161);
 
 --
 -- Bẫy `nhanvien`
@@ -257,7 +225,7 @@ CREATE TRIGGER `isnhanvien` AFTER INSERT ON `nhanvien` FOR EACH ROW BEGIN
                                       NEW.Action_User,
                                        concat('Nhân viên ',@ten,' đã thêm 1 nhân viên : ',NEW.Ten
                                              
-                                             ),now()
+                                             ),now(),0
                                       );
     
     
@@ -296,7 +264,7 @@ set @s='';
     VALUES(null,NEW.Action_User,
                 concat('Nhân viên ',@ten,' đã sửa thông tin nhân viên ',OLD.ID,':',@s 
                                              
-                                             ),now()
+                                             ),now(),0
                                       );
     
      END if;
@@ -311,23 +279,34 @@ DELIMITER ;
 --
 -- Cấu trúc bảng cho bảng `phongban`
 --
+-- Tạo: Th5 18, 2017 lúc 09:15 SA
+--
 
-CREATE TABLE `phongban` (
+CREATE TABLE IF NOT EXISTS `phongban` (
   `ID` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Ten` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `IDTruongPhong` int(11) DEFAULT NULL,
-  `Action_User` int(11) DEFAULT NULL
+  `Action_User` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `IDTruongPhong_2` (`IDTruongPhong`),
+  KEY `IDTruongPhong` (`IDTruongPhong`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- RELATIONS FOR TABLE `phongban`:
+--   `IDTruongPhong`
+--       `nhanvien` -> `ID`
+--
 
 --
 -- Đang đổ dữ liệu cho bảng `phongban`
 --
 
 INSERT INTO `phongban` (`ID`, `Ten`, `IDTruongPhong`, `Action_User`) VALUES
-('KD', 'Phòng kinh doanh', NULL, 121),
-('KT', 'Phòng kế toán', NULL, 121),
+('KD', 'Phòng kinh doanh', 140, 121),
+('KT', 'Phòng kế toán', 170, 121),
 ('NS', 'Phòng nhân sự', 121, 114),
-('TC', 'Phòng tài chính', NULL, 121);
+('TC', 'Phòng tài chính', 148, 121);
 
 --
 -- Bẫy `phongban`
@@ -350,97 +329,19 @@ set @s='';
            set @s = concat(@s,' ,sửa trường phòng từ ',OLD.IDTruongPhong,' thành ',NEW.IDTruongPhong);
         END if;   
    
-    
+    if @s<>'' THEN
     INSERT into lichsuthaydoitt VALUES(null,
                                       NEW.Action_User,
                                        concat('Nhân viên ',@ten,' đã sửa thông tin phòng ban ',OLD.ID,':',@s 
                                              
-                                             ),now()
+                                             ),now(),0
                                       );
-    
+    END IF;
     
 END
 $$
 DELIMITER ;
 
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `quyenthaotac`
---
-
-CREATE TABLE `quyenthaotac` (
-  `ID` varchar(3) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `TenThaoTac` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `quyenthaotac`
---
-
-INSERT INTO `quyenthaotac` (`ID`, `TenThaoTac`) VALUES
-('EDI', 'Chỉnh sửa'),
-('VIW', 'Xem');
-
---
--- Chỉ mục cho các bảng đã đổ
---
-
---
--- Chỉ mục cho bảng `lichsuthaydoitt`
---
-ALTER TABLE `lichsuthaydoitt`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `IDNhanVienTHTD` (`IDNhanVienTHTD`);
-
---
--- Chỉ mục cho bảng `luongnhanvien`
---
-ALTER TABLE `luongnhanvien`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `IDNhanVien` (`IDNhanVien`);
-
---
--- Chỉ mục cho bảng `nhanvien`
---
-ALTER TABLE `nhanvien`
-  ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `Mail` (`Mail`),
-  ADD KEY `IDPhongBan` (`IDPhongBan`);
-
---
--- Chỉ mục cho bảng `phongban`
---
-ALTER TABLE `phongban`
-  ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `IDTruongPhong_2` (`IDTruongPhong`),
-  ADD KEY `IDTruongPhong` (`IDTruongPhong`);
-
---
--- Chỉ mục cho bảng `quyenthaotac`
---
-ALTER TABLE `quyenthaotac`
-  ADD PRIMARY KEY (`ID`);
-
---
--- AUTO_INCREMENT cho các bảng đã đổ
---
-
---
--- AUTO_INCREMENT cho bảng `lichsuthaydoitt`
---
-ALTER TABLE `lichsuthaydoitt`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
---
--- AUTO_INCREMENT cho bảng `luongnhanvien`
---
-ALTER TABLE `luongnhanvien`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
---
--- AUTO_INCREMENT cho bảng `nhanvien`
---
-ALTER TABLE `nhanvien`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=180;
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
