@@ -120,7 +120,10 @@
                                                     } else {
                                                         alert(dt.dt);
                                                      //   $('#addEmp form input').val('');
-                                                        location.reload();
+
+
+                                                        conn.send("thanhcong");
+                                                        location.reload();//THANH CONG DAY
 
                                                     }
                                                     $('#addEmp form label img').attr('src', "<?php echo 'image/captcha.php'?>");

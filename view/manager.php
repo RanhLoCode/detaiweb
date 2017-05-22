@@ -159,7 +159,7 @@
 
                                     };
 
-                                    GetData(1,{id:1,s:10,vl:10});
+                                    GetData(1,{id:1,s:10,vl:10});//copy dong nay
 
                                     //chọn số dòng hiện thị
                                     $scope.getDataFllowRc = function (selRecord) {
