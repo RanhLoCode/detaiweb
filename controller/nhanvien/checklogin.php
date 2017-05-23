@@ -1,4 +1,4 @@
-			    <?php
+﻿			    <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         session_start();
         if (!isset($_SESSION['id'])) {
@@ -12,7 +12,7 @@
             if (empty($tdn))
                 $errors[] = "Tên đăng nhập rỗng";
             
-            $pttTk = '#^([a-zA-Z]|_)([a-zA-Z0-9]|_){2,100}#';
+            $pttTk =  "#^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$#";
             if (! preg_match($pttTk, $tdn)) {
                 $errors[] = "Tên đăng nhập không đúng định dạng : a-zA-Z0-9,_ , 3-100 kí tự";
             }
