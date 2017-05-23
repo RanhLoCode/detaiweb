@@ -1,8 +1,6 @@
 ﻿<script>
     var conn = new WebSocket('ws://<?php echo $_SERVER['SERVER_NAME']?>:8081');
     conn.onopen = function (e) {
-        //alert("fuck");
-
         console.log("Connection established!");
     };
 </script>
@@ -205,6 +203,7 @@ $pb = $pbs->GetDep($emp['IDPhongBan']);
             $kind = $_GET["kind"];
         } else {
             $kind = 'le';
+
         }
         switch ($kind) {
             case "le":
