@@ -1,5 +1,5 @@
 ﻿<script>
-    var conn = new WebSocket('ws://localhost:8081');
+    var conn = new WebSocket('ws://<?php echo $_SERVER['SERVER_NAME']?>:8081');
     conn.onopen = function (e) {
         //alert("fuck");
 
@@ -78,7 +78,7 @@ $pb = $pbs->GetDep($emp['IDPhongBan']);
                             aria-expanded="true">
                         <div class="media" style="max-width: 200px;">
                             <div class="media-left media-middle">
-                                <img src="image/avatar/default-avatar.png"
+                                <img src="image/avatar/<?PHP echo $emp['Hinh']?>"
                                      class="media-object" style="width: 30px; border-radius: 100%">
                             </div>
                             <div class="media-body">
