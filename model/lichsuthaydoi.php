@@ -18,13 +18,21 @@ class lichsuthaydoi
 
     function DanhSachChuaXem()
     {
-        return $this->db->query("SELECT * FROM `lichsuthaydoitt` WHERE daxem=0");//nghi code di
+        return $this->db->query("SELECT * FROM `lichsuthaydoitt` WHERE daxem = 0");//nghi code di
     }
 
     function lichsuthaydoi_page($from, $rowEachPage)
     {
-        RETURN $this->db->query("select * from lichsuthaydoitt  ORDER by NgayThucThi DESC limit $from,$rowEachPage");
+        RETURN $this->db->query("select * from lichsuthaydoitt ORDER by DaXem ASC,NgayThucThi DESC limit $from,$rowEachPage");
 
+
+
+
+    }
+
+    function lichsuthaydoi_chuaxem($from, $rowEachPage)
+    {
+        RETURN $this->db->query("select * from lichsuthaydoitt  ORDER by NgayThucThi DESC limit $from,$rowEachPage");
 
     }
 

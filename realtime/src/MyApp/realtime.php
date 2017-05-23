@@ -23,10 +23,10 @@ class realtime implements MessageComponentInterface {
             , $from->resourceId, $msg, $numRecv, $numRecv == 1 ? '' : 's');
 
         foreach ($this->clients as $client) {
-            if ($from !== $client) {
+
                 // The sender is not the receiver, send to each client connected
                 $client->send($msg);//no se goi ham send nay o moi client
-            }
+
         }
     }
 

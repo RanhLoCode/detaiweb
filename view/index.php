@@ -35,10 +35,13 @@ $pb = $pbs->GetDep($emp['IDPhongBan']);
 <?php if ($_SESSION['isMn'] && $_SESSION['idpb'] == 'NS') {
     ?>
     <script>
+        curPage = 1;
+        curRow = {id: 1, s: 10, vl: 10};
         conn.onmessage = function (e) {
             //Trong day goi lai ham dem so luong chua xem thoi
+
             GetCount();
-            GetData(1, {id: 1, s: 10, vl: 10});
+            GetData(curPage,curRow );
             //   console.log(e.data);
         };
     </script>

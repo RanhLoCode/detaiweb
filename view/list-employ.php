@@ -128,7 +128,7 @@
                                                     }
                                                     $('#addEmp form label img').attr('src', "<?php echo 'image/captcha.php'?>");
 
-                                                },
+                                                }
 
                                             });
 
@@ -296,6 +296,7 @@
                                         } else {
                                             alert('Thàng công');
                                             r.remove();
+                                            conn.send("del ok ");
                                         }
                                     }
                                 })

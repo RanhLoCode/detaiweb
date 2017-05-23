@@ -118,7 +118,10 @@
                                         }).success(function(dt){
                                             //alert(dt);
                                             if(dt){
-                                                GetData(1,{id:1,s:10,vl:10});
+                                                //
+                                                conn.send('d');
+                                           //     GetData(1,{id:1,s:10,vl:10});
+
                                             }else {
                                                 alert('Xảy ra lỗi');
                                             }
@@ -151,7 +154,8 @@
                                                 {id:3,s:'Tất cả',vl:data.totalRow}
                                             ];
                                             $scope.selRecord = rowPage;
-
+                                            curPage = pageIndex;
+                                            curRow = rowPage;
 
                                         });
 

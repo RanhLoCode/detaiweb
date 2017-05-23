@@ -3,10 +3,18 @@
     <h3>Thông tin</h3>
     <div>
         <ul class="breadcrumb">
-            <li><span class="glyphicon glyphicon-home"></span> <a href="#"> Trang
+            <li><span class="glyphicon glyphicon-home"></span> <a href="quan-tri"> Trang
                     chủ </a></li>
-            <li><a href="?kind=le"> Nhân viên</a></li>
-            <li><a href="?kind=profile-employ"> Thông tin cá nhân</a></li>
+            <?php
+
+            if (isset($_GET['id'])) {
+                $id = $_GET['id'];
+            } else {
+                $id = $_SESSION['id'];
+            }
+            ?>
+            <li><a href="nhan-vien/xem-danh-sach.html"> Nhân viên</a></li>
+            <li><a href="nhan-vien/thong-tin-nhan-vien-<?php echo  $id ?>.html"> Thông tin cá nhân</a></li>
         </ul>
     </div>
 
@@ -20,11 +28,6 @@
         </div>
         <?PHP
 
-        if (isset($_GET['id'])) {
-            $id = $_GET['id'];
-        } else {
-            $id = $_SESSION['id'];
-        }
         $emp = $nvs->getEmploy($id);
         $pb = $pbs->GetDep($emp['IDPhongBan']);
 
@@ -89,7 +92,9 @@
                                                     alert(dt.ms[i] + '\n');
                                                 }
                                             } else {
+
                                                 alert('Thành công');
+
                                                 location.reload();
                                             }
                                         }
@@ -101,7 +106,6 @@
                     <?php }?>
                     <img class="img-rounded" src="image/avatar/<?php echo $emp['Hinh'] ?>"
                          width="150"/>
-
                 </div>
                 <div CLASS="media-body">
                     <h1 class="media-heading"><?php echo $emp['Ten'] ?></h1>
@@ -245,6 +249,7 @@
                                                 $('.er').append("<p class='text-warning'>" + dt.ms[i] + "</p>");
                                             }
                                         } else {
+                                            conn.send("update");
                                             alert('Thành công');
                                             location.reload();
                                         }

@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == 'POST'){
 
             // validate
             $tempTen = normalText($ten);
-            $sprTen = "#^[a-zA-Z]([a-zA-Z]|\\s){5,20}#";
+            $sprTen = "#^[a-zA-Z][a-zA-Z\s]{5,30}$#";
             if (!preg_match($sprTen, $tempTen)) {
                 $errors[] = 'Tên không hợp lệ : a-z,A-Z,6-20 kí tự'.$tempTen;
             }
