@@ -107,9 +107,11 @@
                     $ren['manager'] = function () {
                         ?>
                         <script>
+                            //xử lý danh sách thay đổi
                                 app.controller('change-history',function($scope,$http){
-                                    $scope.show = function(note,id){
-                                        $scope.note = note;
+                                    $scope.show = function(note,id){//hiện chi tiết
+                                        $scope.note = note; //hiện thông tin
+                                        //xác nhận xem và hiện lại danh sách
                                         $http({
                                             url:'controller/lichsuthaydoi/XacNhanXem.php',
                                             method:'POST',
@@ -130,6 +132,7 @@
                                     $scope.setOrder = function(field){
                                             $scope.order  =field;
                                     };
+                                    //hiện danh sách
                                     GetData = function(pageIndex,rowPage){
                                         $http.get('controller/lichsuthaydoi/lichsuthaydoi.php',{params:{
                                             pageIndex:pageIndex,
@@ -163,7 +166,7 @@
 
                                     };
 
-                                    GetData(1,{id:1,s:10,vl:10});//copy dong nay
+                                    GetData(1,{id:1,s:10,vl:10});
 
                                     //chọn số dòng hiện thị
                                     $scope.getDataFllowRc = function (selRecord) {
@@ -171,7 +174,7 @@
                                     };
                                     //chọn trang
                                     $scope.selPage = function (pageIndex) {
-                                        GetData(pageIndex,{id: 1, s: 10, vl: 10} );
+                                        GetData(pageIndex,curRow );
                                     };
 
 

@@ -37,7 +37,7 @@
                     showData(1, selRecord);
                 }
                 $scope.selPage = function (pageIndex) {
-                    showData(pageIndex,{id: 1, s: 10, vl: 10} );
+                    showData(pageIndex,  $scope.selRecord );
                 };
                 $scope.order = function (field) {
                     $scope.order_ = field;
@@ -134,6 +134,11 @@
 
                 </div>
             </form>
+            <div class=" pull-right">
+                <ul class="pagination">
+                    <li  ng-repeat="item in pages" ng-click="selPage(item)"><a href="#" onclick="return false" STYLE="color:{{pageActive(item)}};" ">{{item}}</a></li>
+                </ul>
+            </div>
             <div class="table table-responsive"  >
                 <table class="table table-bordered">
                     <thead class="text-danger ">
@@ -177,7 +182,7 @@
                 </table>
                 <div class=" pull-right">
                     <ul class="pagination">
-                        <li  ng-repeat="item in pages" ng-click="selPage(item)"><a href="#" STYLE="color:{{pageActive(item)}};" ">{{item}}</a></li>
+                        <li  ng-repeat="item in pages" ng-click="selPage(item)"><a href="#" onclick="return false"  STYLE="color:{{pageActive(item)}};" ">{{item}}</a></li>
                     </ul>
                 </div>
             </div>
